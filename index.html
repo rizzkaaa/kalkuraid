@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KALKURAID</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <div class="container">
-        <button><a href="">test</a></button>
-
+        <div class="button loading"></div>
     </div>
 
-</body>
+    <script>
+      const button = document.querySelector(".container");
+      setTimeout(() => {
+        button.innerHTML = `<a href="./menu/"><div class="button button-play"></div></a>`
+      }, 4500);
+    </script>
+  </body>
 </html>

@@ -25,6 +25,41 @@ body {
   align-items: center;
 }
 
-button {
+.button {
   margin: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 300px;
+  height: 300px; 
+}
+
+.loading{
+  background-image: url(./assets/image/loading.gif);
+  animation: loading 0.5s 4s forwards;
+}
+@keyframes loading {
+  0%{
+    transform: scale(1);
+    opacity: 1;
+
+  }
+  100%{
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+.button-play{
+  animation: play 0.5s forwards;
+  background-image: url(./assets/image/button-play.png);
+}
+@keyframes play {
+  0%{
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100%{
+    transform: scale(1);
+    opacity: 1;
+  }
 }
