@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 500px;
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./assets/image/bg-index.png);
+    background-size: 100%;
+}
+button{
+    margin: auto;
+}
+@media screen and (max-width: 500px) and (max-height: 1000px) {
+    body{
+        /* background-color: blue; */
+    }
+}
