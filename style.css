@@ -10,6 +10,7 @@ body{
     align-items: center;
     background-image: url(./assets/image/bg-index.png);
     background-size: 100%;
+    overflow: hidden;
 }
 button{
     margin: auto;
