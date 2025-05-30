@@ -1,6 +1,4 @@
-<?php
-echo "kenapa ni error woyy";
-?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
