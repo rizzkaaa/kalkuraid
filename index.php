@@ -19,7 +19,7 @@
         const link = document.querySelector(".container a");
         link.addEventListener("click", (event) => {
             event.preventDefault();
-          link.style.animation = "fadeOut 1.5s forwards";
+          link.style.animation = "fadeOut 1.5s";
           setTimeout(() => {
             window.location.href = "./menu/";
           }, 1300);

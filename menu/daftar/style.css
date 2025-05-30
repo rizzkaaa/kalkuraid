@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100vh;
+}
+body {
+  background-image: url(../../assets/image/bg-menu.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: black; */
+}
+.wrap-peran {
+  background-image: url(../../assets/image/papan-menu.png);
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.wrap-peran input {
+  display: none;
+}
+.wrap-peran label img {
+  width: 200px;
+}
+.wrap-peran label:nth-child(2) {
+  margin-top: 10px;
+  animation: slideDaftar 1s forwards;
+}
+.wrap-peran label:last-child {
+  animation: slideMasuk 1s forwards;
+}
+
+@keyframes slideDaftar {
+  from {
+    transform: translateX(-200px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideMasuk {
+  from {
+    transform: translateX(200px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes onclick {
+  to {
+    transform: translateY(-20px) scale(1.2);
+  }
+}

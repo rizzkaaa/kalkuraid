@@ -52,7 +52,7 @@ body {
 .button-play{
   width: 250px;
   height: 250px; 
-  animation: play 0.5s forwards;
+  animation: play 0.5s;
   background-image: url(./assets/image/button-play.png);
 }
 @keyframes play {

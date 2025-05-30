@@ -19,10 +19,10 @@
           l.addEventListener("click", (event) => {
             event.preventDefault();
             const ref = l.getAttribute('href');
-            l.style.animation = "onclick 0.3s forwards";
+            l.style.animation = "onclick 0.5s";
             setTimeout(() => {
               window.location.href = ref;
-            }, 300);
+            }, 500);
           });
 
       })
