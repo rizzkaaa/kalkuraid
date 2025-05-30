@@ -7,7 +7,7 @@ $user = 'root';
 $password = 'lMfBLtmabZTbZlagmVTgQqLQWKtJoYho';
 $database = 'railway';
 
-$connect = mysqli_connect($host, $user, $user, $password, $port);
+$connect = mysqli_connect($host, $user, $password, $database, $port);
 
 if (!$connect){
     die('Koneksi Error:'. mysqli_connect_error());
