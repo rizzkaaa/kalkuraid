@@ -9,7 +9,7 @@ body {
   height: 100vh;
 }
 body {
-  background-image: url(../assets/image/bg-menu.png);
+  background-image: url(../assets/image/bg-index.gif);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -26,8 +26,8 @@ body {
 }
 
 .wrap {
-    background-image: url(../assets/image/papan-menu.png);
-    width: 500px;
+    background-image: url(../assets/image/papan-menu2.png);
+    width: 400px;
     height: 400px;
     display: flex;
     justify-content: center;
@@ -38,7 +38,7 @@ body {
 }
 .wrap a img{
     /* background-color: blue; */
-    width: 250px;
+    width: 220px;
 }
 
 .container a:first-child{

@@ -20,18 +20,20 @@ body {
 .container {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 form{
-  margin-top: 300px;
+  margin-top: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 300px;
-  transform: translateY(-1000px);
+  /* transform: translateY(-880px); */
+  /* transform: translateY(-2000px); */
+  transition: all 1s;
 }
 .wrap-peran {
-  background-image: url(../../assets/image/papan-menu.png);
+  background-image: url(../../assets/image/papan-menu2.png);
   width: 500px;
   height: 400px;
   display: flex;
@@ -45,7 +47,7 @@ form{
   display: none;
 }
 .wrap-peran label img {
-  width: 230px;
+  width: 200px;
 }
 .wrap-peran label:nth-child(2) {
   margin-top: 10px;
@@ -72,25 +74,35 @@ form{
   }
 }
 
-.wrap-input-data{
+.wrap-input-data#mahasiswa{
   background-image: url(../../assets/image/papan-input-mhs.png);
-  width: 500px;
-  height: 1000px;
+}
+.wrap-input-data#dosen{
+  background-image: url(../../assets/image/papan-input-dosen.png);
+}
+.wrap-input-data#pw{
+  background-image: url(../../assets/image/papan-input-pw.png);
+}
+
+.wrap-input-data{
+  width: 400px;
+  height: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
   /* justify-content: center; */
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   /* background-color: blue; */
-  gap: 85px;
+  gap: 50px;
 }
 .wrap-input-data input{
+  /* opacity: 0; */
   border-radius: 50px;
-  padding: 20px;
-  width: 350px;
-  font-size: 30px;
+  padding: 15px;
+  width: 250px;
+  font-size: 25px;
   background-color: #a6672c;
   border: 7px solid #f5ca95;
   box-shadow: inset 5px 5px 5px #684524;
@@ -105,11 +117,18 @@ form{
   outline: none;
 }
 .wrap-input-data input:first-child{
-  margin-top: 305px;
+  margin-top: 260px;
 }
 .wrap-input-data img{
-  width: 250px;
+  width: 200px;
 }
+.wrap-input-data#pw input:first-child{
+  margin-top: 280px;
+}
+.wrap-input-data#pw img{
+  margin-top: 130px;
+}
+
 @keyframes onclick {
   to {
     transform: translateY(-20px) scale(1.2);
