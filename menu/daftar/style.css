@@ -1,48 +1,29 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html,
-body {
-  width: 100%;
-  height: 100vh;
-}
 body {
   background-image: url(../../assets/image/bg-daftar.gif);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .container {
-  width: 100%;
-  height: 100%;
   overflow: hidden;
+  flex-direction: column;
+  align-items: center;
 }
-.coconut-tree{
-  display: flex;
-  transform: translateX(-290px) translateY(30px);
-}
-.coconut-tree img{
-  width: 480px;
-  margin-inline: 5px;
-  transition: all 1s;
-}
-form{
-  transform: translateY(-230px);
+
+form {
+  transform: translateY(-200px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 300px;
+  gap: 350px;
   /* transform: translateY(-1150px); */
-  /* transform: translateY(-2250px); */
+  /* transform: translateY(-2200px); */
   transition: all 1s;
 }
+.container-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .wrap-peran {
-  background-image: url(../../assets/image/papan-menu2.png);
+  background-image: url(../../assets/image/papan-menu.png);
   width: 500px;
   height: 400px;
   display: flex;
@@ -50,23 +31,24 @@ form{
   align-items: center;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: contain;
   overflow: hidden;
 }
 .wrap-peran input {
   display: none;
 }
 .wrap-peran label img {
-  width: 200px;
+  width: 190px;
 }
 .wrap-peran label:nth-child(2) {
   margin-top: 10px;
-  animation: slideDaftar 1s forwards;
+  animation: slide1 1s forwards;
 }
 .wrap-peran label:last-child {
-  animation: slideMasuk 1s forwards;
+  animation: slide2 1s forwards;
 }
 
-@keyframes slideDaftar {
+@keyframes slide1 {
   from {
     transform: translateX(-200px);
   }
@@ -74,7 +56,7 @@ form{
     transform: translateX(0);
   }
 }
-@keyframes slideMasuk {
+@keyframes slide2 {
   from {
     transform: translateX(200px);
   }
@@ -83,62 +65,56 @@ form{
   }
 }
 
-.wrap-input-data#mahasiswa{
+.wrap-input-data#mahasiswa {
   background-image: url(../../assets/image/papan-input-mhs.png);
 }
-.wrap-input-data#dosen{
+.wrap-input-data#dosen {
   background-image: url(../../assets/image/papan-input-dosen.png);
 }
-.wrap-input-data#pw{
+.wrap-input-data#pw {
   background-image: url(../../assets/image/papan-input-pw.png);
 }
 
-.wrap-input-data{
+.wrap-input-data {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  width: 400px;
-  height: 800px;
+  width: 350px;
+  height: 700px;
   display: none;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
-.input-data{
-  gap: 50px;
+.input-data {
+  gap: 45px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.wrap-input-data input{
-  /* opacity: 0; */
+.wrap-input-data input {
   border-radius: 50px;
-  padding: 15px;
-  width: 250px;
-  font-size: 25px;
+  padding: 12px;
+  width: 220px;
+  font-size: 22px;
   background-color: #a6672c;
   border: 7px solid #f5ca95;
   box-shadow: inset 5px 5px 5px #684524;
   color: #f5d38e;
-  text-shadow:
-    1px 0 #f5d38e,
-    -1px 0 #f5d38e,
-    0 1px #f5d38e,
-    0 -1px #f5d38e;
+  text-shadow: 1px 0 #f5d38e, -1px 0 #f5d38e, 0 1px #f5d38e, 0 -1px #f5d38e;
 }
-.wrap-input-data input:focus{
+.wrap-input-data input:focus {
   outline: none;
 }
-.wrap-input-data input:first-child{
-  margin-top: 245px;
+.wrap-input-data input:first-child {
+  margin-top: 210px;
 }
-.wrap-input-data img{
+.wrap-input-data img {
   width: 200px;
 }
-.wrap-input-data#pw input:first-child{
-  margin-top: 255px;
+.wrap-input-data#pw input:first-child {
+  margin-top: 225px;
 }
-.wrap-input-data#pw img{
+.wrap-input-data#pw img {
   margin-top: 130px;
 }
 
@@ -146,4 +122,8 @@ form{
   to {
     transform: translateY(-20px) scale(1.2);
   }
+}
+
+.btn-undo{
+  /* transform: translateX(100px); */
 }

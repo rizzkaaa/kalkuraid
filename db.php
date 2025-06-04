@@ -12,7 +12,7 @@ $connect = mysqli_connect($host, $user, $password, $database, $port);
 if (!$connect) {
     die('Koneksi Error:' . mysqli_connect_error());
 }
-
+ mysqli_query($connect, "DELETE FROM users");
 
 function generateID()
 {

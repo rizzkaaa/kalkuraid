@@ -1,73 +1,72 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html,
 body {
-  width: 100%;
-  height: 100vh;
-}
-body {
-  background-image: url(../assets/image/bg-menu.gif);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-image: url(../assets/image/bg-daftar.gif);
 }
 .container {
-  width: 100%;
-  height: 100%;
-  display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+.coconut-tree img:first-child {
+  animation: slideDaftar 1s forwards;
+}
+.coconut-tree img:last-child {
+  animation: slideMasuk 1s forwards;
 }
 
 .wrap {
-    background-image: url(../assets/image/papan-menu2.png);
-    width: 400px;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-repeat: no-repeat;
-    background-position: center;
-    overflow: hidden;
+  transform: translateY(-200px);
+  background-image: url(../assets/image/papan-menu.png);
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  overflow: hidden;
 }
-.wrap a img{
-    /* background-color: blue; */
-    width: 220px;
+.wrap a img {
+  width: 190px;
 }
 
-.container a:first-child{
-    margin-top: 10px;
-    margin-left: 15px;
-    animation: slideDaftar 1s forwards;
+.container a:first-child {
+  margin-top: 10px;
+  margin-left: 15px;
+  animation: slideDaftar 1s forwards;
 }
-.container a:last-child{
-    animation: slideMasuk 1s forwards;
+.container a:last-child {
+  animation: slideMasuk 1s forwards;
 }
 
 @keyframes slideDaftar {
-    from{
-        transform: translateX(-200px);
-    }
-    to{
-        transform: translateX(0);
-    }
+  from {
+    transform: translateX(-200px);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 @keyframes slideMasuk {
-    from{
-        transform: translateX(200px);
-    }
-    to{
-        transform: translateX(0);
-    }
+  from {
+    transform: translateX(200px);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 @keyframes onclick {
-    to{
-        transform: translateY(-20px) scale(1.2);
-    }
-} 
+  to {
+    transform: translateY(-20px) scale(1.2);
+  }
+}
+@keyframes back1 {
+  to {
+    transform: translateX(-200px);
+  }
+}
+@keyframes back2 {
+  to {
+    transform: translateX(200px);
+  }
+}

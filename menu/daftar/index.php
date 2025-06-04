@@ -9,6 +9,7 @@ include '../../db.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daftar</title>
   <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../../global-style.css" />
 </head>
 
 <body>
@@ -19,11 +20,15 @@ include '../../db.php';
       <img src="../../assets/image/pohon-kanan.png" alt="">
     </div>
     <form action="proses-daftar.php" method="POST">
-      <div class="wrap-peran">
-        <input type="radio" id="peran-mhs"  name="peran" value="mahasiswa">
-        <label for="peran-mhs"><img src="../../assets/image/mhs-btn.png" alt=""></label>
-        <input type="radio" id="peran-dosen" name="peran" value="dosen">
-        <label for="peran-dosen"><img src="../../assets/image/dosen-btn.png" alt=""></label>
+      <div class="container-wrap">
+        <div class="wrap-peran">
+          <input type="radio" id="peran-mhs" name="peran" value="mahasiswa">
+          <label for="peran-mhs"><img src="../../assets/image/mhs-btn.png" alt=""></label>
+          <input type="radio" id="peran-dosen" name="peran" value="dosen">
+          <label for="peran-dosen"><img src="../../assets/image/dosen-btn.png" alt=""></label>
+        </div>
+
+        <a href="../" class="btn-undo">undo</a>
       </div>
 
       <div class="wrap-input-data" id="mahasiswa">
@@ -68,6 +73,9 @@ include '../../db.php';
     const pw = document.getElementById("pw");
     const btnNext = document.querySelectorAll(".btn");
 
+    trees.forEach((tree, i) => {
+      tree.style.animation = `slide${i+1} 1s`;
+    })
     labels.forEach((label, i) => {
       label.addEventListener("click", () => {
         label.style.animation = "onclick 0.5s";
@@ -86,7 +94,7 @@ include '../../db.php';
             } else {
               val = 220;
             }
-
+            tree.style.animation = "";
             tree.style.transform = `translateX(${val}px)`;
           })
           form.style.transform = 'translateY(-1150px)';
@@ -142,7 +150,7 @@ include '../../db.php';
         btn.style.animation = "onclick 0.5s";
         setTimeout(() => {
           pw.style.display = 'flex';
-          form.style.transform = "translateY(-2250px)";
+          form.style.transform = "translateY(-2200px)";
         }, 700);
 
       })
@@ -195,9 +203,9 @@ include '../../db.php';
       generateUsn(e.target.value)
     })
 
-    function generateUsn(target){
+    function generateUsn(target) {
       const nama = [...target].filter(char => char !== ' ');
-      const namaAcak = shuffleArray(nama) 
+      const namaAcak = shuffleArray(nama)
 
       const huruf = namaAcak.slice(0, 4);
       const angka = Math.floor(Math.random() * 90) + 10;
@@ -205,7 +213,7 @@ include '../../db.php';
       const id = huruf.join("") + angka;
       document.getElementById("username").value = id;
       console.log(id);
-      
+
     }
 
     function shuffleArray(array) {
