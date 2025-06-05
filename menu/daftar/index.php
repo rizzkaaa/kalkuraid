@@ -9,7 +9,7 @@ include '../../db.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daftar</title>
   <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="../../global-style.css" />
+  <link rel="stylesheet" href="../../global-style.css" />
 </head>
 
 <body>
@@ -27,12 +27,12 @@ include '../../db.php';
           <input type="radio" id="peran-dosen" name="peran" value="dosen">
           <label for="peran-dosen"><img src="../../assets/image/dosen-btn.png" alt=""></label>
         </div>
+        <div class="btn-undo"><img src="../../assets/image/btn-undo.png" alt=""></div>
 
-        <a href="../" class="btn-undo">undo</a>
       </div>
 
       <div class="wrap-input-data" id="mahasiswa">
-        <div class="btn-undo">undo</div>
+        <div class="btn-undo"><img src="../../assets/image/btn-undo.png" alt=""></div>
         <div class="input-data">
           <input type="text" name="nama_mhs" id="nama_mhs">
           <input type="text" name="npm" id="npm">
@@ -42,7 +42,7 @@ include '../../db.php';
       </div>
 
       <div class="wrap-input-data" id="dosen">
-        <div class="btn-undo">undo</div>
+        <div class="btn-undo"><img src="../../assets/image/btn-undo.png" alt=""></div>
         <div class="input-data">
           <input type="text" name="nama_dosen" id="nama_dosen">
           <input type="text" name="nip" id="nip">
@@ -52,7 +52,7 @@ include '../../db.php';
       </div>
 
       <div class="wrap-input-data" id="pw">
-        <div class="btn-undo">undo</div>
+        <div class="btn-undo"><img src="../../assets/image/btn-undo.png" alt=""></div>
         <div class="input-data">
           <input type="text" name="username" id="username" readonly>
           <input type="text" name="password" id="password">
@@ -74,8 +74,9 @@ include '../../db.php';
     const btnNext = document.querySelectorAll(".btn");
 
     trees.forEach((tree, i) => {
-      tree.style.animation = `slide${i+1} 1s`;
+      tree.style.animation = `slide${i + 1} 1s`;
     })
+
     labels.forEach((label, i) => {
       label.addEventListener("click", () => {
         label.style.animation = "onclick 0.5s";
@@ -97,7 +98,7 @@ include '../../db.php';
             tree.style.animation = "";
             tree.style.transform = `translateX(${val}px)`;
           })
-          form.style.transform = 'translateY(-1150px)';
+          form.style.transform = 'translateY(-1170px)';
         }, 600);
 
       });
@@ -150,7 +151,7 @@ include '../../db.php';
         btn.style.animation = "onclick 0.5s";
         setTimeout(() => {
           pw.style.display = 'flex';
-          form.style.transform = "translateY(-2200px)";
+          form.style.transform = "translateY(-2230px)";
         }, 700);
 
       })
@@ -159,17 +160,35 @@ include '../../db.php';
     const btnUndo = document.querySelectorAll(".btn-undo");
     btnUndo.forEach((btn, i) => {
       btn.addEventListener('click', () => {
-        if (i == 2) {
+        if(i == 0){
+        btn.style.animation = "onclick 0.5s backwards";
+          trees.forEach((tree, j) => {
+            if (j == 0) {
+              val = -220;
+            } else {
+              val = 220;
+            }
+            tree.style.transform = `translateX(${val}px)`;
+          })
+
+          setTimeout(() => {
+            window.location.href = "../";
+          }, 600);
+        }
+        else if (i == 3) {
           document.getElementById("username").value = "";
           document.getElementById("password").value = "";
 
           btnNext.forEach((btnN, i) => {
             btnN.style.animation = "";
           })
-          form.style.transform = 'translateY(-1150px)';
+          form.style.transform = 'translateY(-1170px)';
           setTimeout(() => {
             pw.style.display = 'none';
           }, 1000);
+
+          console.log(i);
+
         } else {
           document.getElementById("nama_mhs").value = "";
           document.getElementById("npm").value = "";
@@ -182,7 +201,7 @@ include '../../db.php';
           labels.forEach(label => {
             label.style.animation = "";
           })
-          form.style.transform = 'translateY(-230px)';
+          form.style.transform = 'translateY(-200px)';
           trees.forEach(tree => {
             tree.style.transform = `translate(0)`;
           })
@@ -191,6 +210,7 @@ include '../../db.php';
             mhs.style.display = 'none';
             dosen.style.display = 'none';
           }, 1000);
+          console.log(i);
 
         }
       })

@@ -12,7 +12,6 @@ $connect = mysqli_connect($host, $user, $password, $database, $port);
 if (!$connect) {
     die('Koneksi Error:' . mysqli_connect_error());
 }
- mysqli_query($connect, "DELETE FROM users");
 
 function generateID()
 {
@@ -37,7 +36,6 @@ function generateUsername($nama)
 }
 
 
-$username = generateUsername('Rizka');
 // $query = "INSERT INTO users (id_user, username, password, peran) VALUES ('$id_user', '$username', '1234', 'Mahasiswa')";
 
 ?>

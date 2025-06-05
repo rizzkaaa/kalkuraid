@@ -30,3 +30,9 @@ body {
   margin-inline: 5px;
   transition: all 1s;
 }
+.btn-undo img {
+  width: 80px;
+}
+.btn-undo {
+  width: 100px;
+}

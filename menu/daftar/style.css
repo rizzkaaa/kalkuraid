@@ -7,17 +7,18 @@ body {
   align-items: center;
 }
 
+
 form {
   transform: translateY(-200px);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 350px;
-  /* transform: translateY(-1150px); */
+  /* transform: translateY(-1200px); */
   /* transform: translateY(-2200px); */
   transition: all 1s;
 }
-.container-wrap{
+.container-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,6 +34,9 @@ form {
   background-position: center;
   background-size: contain;
   overflow: hidden;
+}
+.container-wrap .btn-undo{
+  transform: translateY(-100px);
 }
 .wrap-peran input {
   display: none;
@@ -85,6 +89,9 @@ form {
   background-position: center;
   background-size: contain;
 }
+.wrap-input-data .btn-undo{
+  transform: translateY(-30px);
+}
 .input-data {
   gap: 45px;
   display: flex;
@@ -106,24 +113,20 @@ form {
   outline: none;
 }
 .wrap-input-data input:first-child {
-  margin-top: 210px;
+  margin-top: 140px;
 }
-.wrap-input-data img {
+.wrap-input-data .btn img {
   width: 200px;
 }
 .wrap-input-data#pw input:first-child {
-  margin-top: 225px;
+  margin-top: 155px;
 }
-.wrap-input-data#pw img {
-  margin-top: 130px;
+.wrap-input-data#pw .btn img {
+  margin-top: 100px;
 }
 
 @keyframes onclick {
   to {
     transform: translateY(-20px) scale(1.2);
   }
-}
-
-.btn-undo{
-  /* transform: translateX(100px); */
 }
