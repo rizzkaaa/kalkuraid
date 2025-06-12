@@ -128,7 +128,7 @@ session_start()
                 e.preventDefault(); 
                 timer = setTimeout(() => {
                     document.querySelectorAll(".aksi").forEach(a => a.style.transform = "translateX(550px)");
-                    aksi.style.transform = "translateX(50px)";
+                    aksi.style.transform = "translateX(0)";
                 }, 600);
             };
 
@@ -136,6 +136,7 @@ session_start()
 
             // Desktop
             item.addEventListener("mousedown", showAksi);
+            item.addEventListener("dblclick", showAksi);
             item.addEventListener("mouseup", cancel);
             item.addEventListener("mouseleave", cancel);
 

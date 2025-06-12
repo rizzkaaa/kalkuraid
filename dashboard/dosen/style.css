@@ -81,13 +81,9 @@ body {
 .aksi {
   position: absolute;
   /* background-color: black; */
-  top: 0;
-  width: 100%;
-  height: 100%;
   z-index: 99;
-  display: flex;
-  align-items: center;
-  justify-content: end;
+  top: 30px;
+  right: -50px;
 }
 .papan-aksi {
   background-image: url(../../assets/board/papan-aksi.png);
