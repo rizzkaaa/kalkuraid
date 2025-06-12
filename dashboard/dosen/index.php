@@ -32,22 +32,52 @@ session_start()
                 <img src="../../assets/button/btn-uplist-class.png" alt="">
                 <span>1 TRPL B: Pertemuan 1</span>
             </a>
+            <div class="aksi">
+                <div class="papan-aksi">
+                    <a href=""><i class="fa-regular fa-copy"></i></a>
+                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                </div>
+            </div>
             <a href="../../class/classroom/" class="btn-class">
                 <img src="../../assets/button/btn-list-class.png" alt="">
                 <span>Materi Teorema Dasar Kalkulus dan Luas Kurva dengan Teori Rienmann</span>
             </a>
+            <div class="aksi">
+                <div class="papan-aksi">
+                    <a href=""><i class="fa-regular fa-copy"></i></a>
+                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                </div>
+            </div>
             <a href="../../class/classroom/" class="btn-class">
                 <img src="../../assets/button/btn-list-class.png" alt="">
                 <span>Tidak ada kelas</span>
             </a>
+            <div class="aksi">
+                <div class="papan-aksi">
+                    <a href=""><i class="fa-regular fa-copy"></i></a>
+                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                </div>
+            </div>
             <a href="../../class/classroom/" class="btn-class">
                 <img src="../../assets/button/btn-list-class.png" alt="">
                 <span>Tidak ada kelas</span>
             </a>
+            <div class="aksi">
+                <div class="papan-aksi">
+                    <a href=""><i class="fa-regular fa-copy"></i></a>
+                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                </div>
+            </div>
             <a href="../../class/classroom/" class="btn-class">
                 <img src="../../assets/button/btn-list-class.png" alt="">
                 <span>Tidak ada kelas</span>
             </a>
+            <div class="aksi">
+                <div class="papan-aksi">
+                    <a href=""><i class="fa-regular fa-copy"></i></a>
+                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                </div>
+            </div>
         
         </div>
     </div>

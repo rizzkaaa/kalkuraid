@@ -74,3 +74,10 @@ body {
   overflow: scroll;
 }
 
+
+.aksi{
+  position: absolute;
+  background-color: black;
+  top: 0;
+  left: 0;
+}
