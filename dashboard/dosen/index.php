@@ -98,8 +98,8 @@ session_start()
                 </a>
                 <div class="aksi">
                     <div class="papan-aksi">
-                        <a href=""><i class="fa-regular fa-copy"></i></a>
-                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                        <a href="#"><i class="fa-regular fa-copy"></i></a>
+                        <a href="#"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             </div>
@@ -117,26 +117,27 @@ session_start()
             }
         })
 
-
         const items = document.querySelectorAll(".btn-class");
 
         items.forEach((item) => {
-            const aksi = item.querySelector(".aksi");
+            const aksi = item.querySelector(".aksi .papan-aksi");
             let timer;
-
             const showAksi = (e) => {
-                e.preventDefault(); 
+                e.preventDefault();
+                console.log("mousedown");
+
                 timer = setTimeout(() => {
-                    document.querySelectorAll(".aksi").forEach(a => a.style.transform = "translateX(550px)");
+                    console.log("jalan");
+
+                    document.querySelectorAll(".aksi .papan-aksi").forEach(a => a.style.transform = "translateX(550px)");
                     aksi.style.transform = "translateX(0)";
-                }, 600);
+                }, 600)
             };
 
             const cancel = () => clearTimeout(timer);
 
             // Desktop
             item.addEventListener("mousedown", showAksi);
-            item.addEventListener("dblclick", showAksi);
             item.addEventListener("mouseup", cancel);
             item.addEventListener("mouseleave", cancel);
 
@@ -146,10 +147,9 @@ session_start()
             item.addEventListener("touchcancel", cancel);
         });
 
-        // Klik di luar = sembunyikan semua
         document.addEventListener("click", function(e) {
             if (!e.target.closest(".btn-class")) {
-                document.querySelectorAll(".aksi").forEach(div => div.style.transform = "translateX(550px)");
+                document.querySelectorAll(".aksi .papan-aksi").forEach(div => div.style.transform = "translateX(550px)");
             }
         });
     </script>

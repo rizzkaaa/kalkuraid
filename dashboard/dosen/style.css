@@ -75,8 +75,8 @@ body {
 }
 
 .btn-class:first-child .aksi {
-  left: -50px;
-  top: 40px;
+  top: 100px;
+  right: 0;
 }
 .aksi {
   position: absolute;
