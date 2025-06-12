@@ -74,10 +74,34 @@ body {
   overflow: scroll;
 }
 
-
-.aksi{
+.btn-class:first-child .aksi {
+  left: -50px;
+  top: 40px;
+}
+.aksi {
   position: absolute;
-  background-color: black;
+  /* background-color: black; */
   top: 0;
-  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.papan-aksi {
+  background-image: url(../../assets/board/papan-aksi.png);
+  width: 200px;
+  height: 100px;
+  background-size: contain;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  transform: translateX(550px);
+  padding-inline: 25px;
+  transition: all 0.5s;
+}
+.papan-aksi i {
+  color: #591e04;
+  font-size: 30px;
 }

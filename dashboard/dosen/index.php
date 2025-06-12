@@ -13,6 +13,7 @@ session_start()
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 
 </head>
 
@@ -22,63 +23,86 @@ session_start()
             <p>Rizka Layla Ramadhani</p>
         </div>
 
-        <a href="../../class/create-class/" class="btn-create">
+        <div class="btn-create">
             <img src="../../assets/button/btn-create.png" alt="">
-            <span>BUAT KELAS</span>
-        </a>
+            <a href="../../class/create-class/">
+                <span>BUAT KELAS</span>
+            </a>
+        </div>
 
         <div class="list-kelas">
-            <a href="../../class/classroom/" class="btn-class">
+            <div class="btn-class">
                 <img src="../../assets/button/btn-uplist-class.png" alt="">
-                <span>1 TRPL B: Pertemuan 1</span>
-            </a>
-            <div class="aksi">
-                <div class="papan-aksi">
-                    <a href=""><i class="fa-regular fa-copy"></i></a>
-                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                <a href="../../class/classroom/">
+                    <span>1 TRPL B: Pertemuan 1</span>
+                </a>
+                <div class="aksi">
+                    <div class="papan-aksi">
+                        <a href=""><i class="fa-regular fa-copy"></i></a>
+                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
                 </div>
             </div>
-            <a href="../../class/classroom/" class="btn-class">
+            <div class="btn-class">
                 <img src="../../assets/button/btn-list-class.png" alt="">
-                <span>Materi Teorema Dasar Kalkulus dan Luas Kurva dengan Teori Rienmann</span>
-            </a>
-            <div class="aksi">
-                <div class="papan-aksi">
-                    <a href=""><i class="fa-regular fa-copy"></i></a>
-                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                <a href="../../class/classroom/">
+                    <span>Materi Teorema Dasar Kalkulus dan Luas Kurva dengan Teori Rienmann</span>
+                </a>
+                <div class="aksi">
+                    <div class="papan-aksi">
+                        <a href=""><i class="fa-regular fa-copy"></i></a>
+                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
                 </div>
             </div>
-            <a href="../../class/classroom/" class="btn-class">
+            <div class="btn-class">
                 <img src="../../assets/button/btn-list-class.png" alt="">
-                <span>Tidak ada kelas</span>
-            </a>
-            <div class="aksi">
-                <div class="papan-aksi">
-                    <a href=""><i class="fa-regular fa-copy"></i></a>
-                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                <a href="../../class/classroom/">
+                    <span>Tidak ada kelas</span>
+                </a>
+                <div class="aksi">
+                    <div class="papan-aksi">
+                        <a href=""><i class="fa-regular fa-copy"></i></a>
+                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
                 </div>
             </div>
-            <a href="../../class/classroom/" class="btn-class">
+            <div class="btn-class">
                 <img src="../../assets/button/btn-list-class.png" alt="">
-                <span>Tidak ada kelas</span>
-            </a>
-            <div class="aksi">
-                <div class="papan-aksi">
-                    <a href=""><i class="fa-regular fa-copy"></i></a>
-                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                <a href="../../class/classroom/">
+                    <span>Tidak ada kelas</span>
+                </a>
+                <div class="aksi">
+                    <div class="papan-aksi">
+                        <a href=""><i class="fa-regular fa-copy"></i></a>
+                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
                 </div>
             </div>
-            <a href="../../class/classroom/" class="btn-class">
+            <div class="btn-class">
                 <img src="../../assets/button/btn-list-class.png" alt="">
-                <span>Tidak ada kelas</span>
-            </a>
-            <div class="aksi">
-                <div class="papan-aksi">
-                    <a href=""><i class="fa-regular fa-copy"></i></a>
-                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                <a href="../../class/classroom/">
+                    <span>Tidak ada kelas</span>
+                </a>
+                <div class="aksi">
+                    <div class="papan-aksi">
+                        <a href=""><i class="fa-regular fa-copy"></i></a>
+                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
                 </div>
             </div>
-        
+            <div class="btn-class">
+                <img src="../../assets/button/btn-list-class.png" alt="">
+                <a href="../../class/classroom/">
+                    <span>Tidak ada kelas</span>
+                </a>
+                <div class="aksi">
+                    <div class="papan-aksi">
+                        <a href=""><i class="fa-regular fa-copy"></i></a>
+                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -87,11 +111,46 @@ session_start()
         let value = -10;
 
         btnClass.forEach((btn, i) => {
-            if(i != 0){
+            if (i != 0) {
                 btn.style.transform = `translateY(${value}px)`;
                 value -= 20;
             }
         })
+
+
+        const items = document.querySelectorAll(".btn-class");
+
+        items.forEach((item) => {
+            const aksi = item.querySelector(".aksi");
+            let timer;
+
+            const showAksi = (e) => {
+                e.preventDefault(); 
+                timer = setTimeout(() => {
+                    document.querySelectorAll(".aksi").forEach(a => a.style.transform = "translateX(550px)");
+                    aksi.style.transform = "translateX(50px)";
+                }, 600);
+            };
+
+            const cancel = () => clearTimeout(timer);
+
+            // Desktop
+            item.addEventListener("mousedown", showAksi);
+            item.addEventListener("mouseup", cancel);
+            item.addEventListener("mouseleave", cancel);
+
+            // Mobile
+            item.addEventListener("touchstart", showAksi);
+            item.addEventListener("touchend", cancel);
+            item.addEventListener("touchcancel", cancel);
+        });
+
+        // Klik di luar = sembunyikan semua
+        document.addEventListener("click", function(e) {
+            if (!e.target.closest(".btn-class")) {
+                document.querySelectorAll(".aksi").forEach(div => div.style.transform = "translateX(550px)");
+            }
+        });
     </script>
 </body>
 
