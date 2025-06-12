@@ -1,5 +1,5 @@
 body {
-  background-image: url(../assets/image/bg-daftar.gif);
+  background-image: url(../assets/background/bg-menu.gif);
 }
 .container {
   overflow: hidden;
@@ -16,7 +16,7 @@ body {
 
 .wrap {
   transform: translateY(-200px);
-  background-image: url(../assets/image/papan-menu.png);
+  background-image: url(../assets/board/papan-menu.png);
   width: 400px;
   height: 400px;
   display: flex;

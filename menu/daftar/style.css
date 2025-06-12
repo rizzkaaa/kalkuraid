@@ -1,5 +1,5 @@
 body {
-  background-image: url(../../assets/image/bg-daftar.gif);
+  background-image: url(../../assets/background/bg-menu.gif);
 }
 .container {
   overflow: hidden;
@@ -24,7 +24,7 @@ form {
   align-items: center;
 }
 .wrap-peran {
-  background-image: url(../../assets/image/papan-menu.png);
+  background-image: url(../../assets/board/papan-menu.png);
   width: 500px;
   height: 400px;
   display: flex;
@@ -70,13 +70,13 @@ form {
 }
 
 .wrap-input-data#mahasiswa {
-  background-image: url(../../assets/image/papan-input-mhs.png);
+  background-image: url(../../assets/board/papan-input-mhs.png);
 }
 .wrap-input-data#dosen {
-  background-image: url(../../assets/image/papan-input-dosen.png);
+  background-image: url(../../assets/board/papan-input-dosen.png);
 }
 .wrap-input-data#pw {
-  background-image: url(../../assets/image/papan-input-pw.png);
+  background-image: url(../../assets/board/papan-input-pw.png);
 }
 
 .wrap-input-data {

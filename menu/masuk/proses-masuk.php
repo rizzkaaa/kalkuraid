@@ -23,6 +23,6 @@ if($cek > 0){
         echo "Peran tidak dikenali.";
     }
 } else {
-    header('./?pesan=gagal');
+    header('location: ./?pesan=gagal');
 }
 ?>

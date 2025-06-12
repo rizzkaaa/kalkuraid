@@ -12,12 +12,12 @@
 <body>
   <div class="container">
     <div class="coconut-tree">
-      <img src="../assets/image/pohon-kiri.png" alt="">
-      <img src="../assets/image/pohon-kanan.png" alt="">
+      <img src="../assets/component/pohon-kiri.png" alt="">
+      <img src="../assets/component/pohon-kanan.png" alt="">
     </div>
     <div class="wrap">
-      <a href="./daftar/"><img src="../assets/image/daftar-btn.png" alt="" /></a>
-      <a href="./masuk/"><img src="../assets/image/login-btn.png" alt="" /></a>
+      <a href="./daftar/"><img src="../assets/button/btn-daftar.png" alt="" /></a>
+      <a href="./masuk/"><img src="../assets/button/btn-login.png" alt="" /></a>
     </div>
   </div>
 

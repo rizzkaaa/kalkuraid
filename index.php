@@ -16,7 +16,7 @@
     <script>
       const button = document.querySelector(".container");
       setTimeout(() => {
-        button.innerHTML = `<a href="./menu/"><div class="button button-play"></div></a>`;
+        button.innerHTML = `<a href="./menu/" class=""><div class="button button-play"></div></a>`;
         const link = document.querySelector(".container a");
         link.addEventListener("click", (event) => {
             event.preventDefault();

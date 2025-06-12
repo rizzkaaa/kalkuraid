@@ -10,53 +10,57 @@ include '../../db.php';
   <title>Daftar</title>
   <link rel="stylesheet" href="./style.css" />
   <link rel="stylesheet" href="../../global-style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
   <div class="container">
     <div class="coconut-tree">
-      <img src="../../assets/image/pohon-kiri.png" alt="">
-      <img src="../../assets/image/pohon-kanan.png" alt="">
+      <img src="../../assets/component/pohon-kiri.png" alt="">
+      <img src="../../assets/component/pohon-kanan.png" alt="">
     </div>
     <form action="proses-daftar.php" method="POST">
       <div class="container-wrap">
         <div class="wrap-peran">
           <input type="radio" id="peran-mhs" name="peran" value="mahasiswa">
-          <label for="peran-mhs"><img src="../../assets/image/mhs-btn.png" alt=""></label>
+          <label for="peran-mhs"><img src="../../assets/button/btn-mhs.png" alt=""></label>
           <input type="radio" id="peran-dosen" name="peran" value="dosen">
-          <label for="peran-dosen"><img src="../../assets/image/dosen-btn.png" alt=""></label>
+          <label for="peran-dosen"><img src="../../assets/button/btn-dosen.png" alt=""></label>
         </div>
-        <div class="btn-undo"><img src="../../assets/image/btn-undo.png" alt=""></div>
+        <div class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></div>
 
       </div>
 
       <div class="wrap-input-data" id="mahasiswa">
-        <div class="btn-undo"><img src="../../assets/image/btn-undo.png" alt=""></div>
+        <div class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></div>
         <div class="input-data">
           <input type="text" name="nama_mhs" id="nama_mhs">
           <input type="text" name="npm" id="npm">
           <input type="text" name="univ_mhs" id="univ_mhs">
-          <div class="btn"><img src="../../assets/image/btn-lanjut.png" alt=""></div>
+          <div class="btn"><img src="../../assets/button/btn-lanjut.png" alt=""></div>
         </div>
       </div>
 
       <div class="wrap-input-data" id="dosen">
-        <div class="btn-undo"><img src="../../assets/image/btn-undo.png" alt=""></div>
+        <div class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></div>
         <div class="input-data">
           <input type="text" name="nama_dosen" id="nama_dosen">
           <input type="text" name="nip" id="nip">
           <input type="text" name="univ_dosen" id="univ_dosen">
-          <div class="btn"><img src="../../assets/image/btn-lanjut.png" alt=""></div>
+          <div class="btn"><img src="../../assets/button/btn-lanjut.png" alt=""></div>
         </div>
       </div>
 
       <div class="wrap-input-data" id="pw">
-        <div class="btn-undo"><img src="../../assets/image/btn-undo.png" alt=""></div>
+        <div class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></div>
         <div class="input-data">
           <input type="text" name="username" id="username" readonly>
           <input type="text" name="password" id="password">
-          <div class="btn"><img src="../../assets/image/btn-simpan.png" alt=""></div>
+          <div class="btn"><img src="../../assets/button/btn-simpan.png" alt=""></div>
         </div>
       </div>
     </form>
@@ -64,7 +68,6 @@ include '../../db.php';
 
 
   <script>
-
     const labels = document.querySelectorAll(".wrap-peran label");
     const trees = document.querySelectorAll(".coconut-tree img");
     const form = document.querySelector('form');
@@ -119,8 +122,7 @@ include '../../db.php';
 
           console.log(namaMhs, npm, univMhs);
 
-        }
-        else if (i == 1) {
+        } else if (i == 1) {
           const namaDosen = document.getElementById("nama_dosen").value;
           const nip = document.getElementById("nip").value;
           const univDosen = document.getElementById("univ_dosen").value;
@@ -131,8 +133,7 @@ include '../../db.php';
           }
           console.log("Dosen done");
 
-        }
-        else {
+        } else {
           const username = document.getElementById("username").value;
           const password = document.getElementById("password").value;
 
@@ -160,8 +161,8 @@ include '../../db.php';
     const btnUndo = document.querySelectorAll(".btn-undo");
     btnUndo.forEach((btn, i) => {
       btn.addEventListener('click', () => {
-        if(i == 0){
-        btn.style.animation = "onclick 0.5s backwards";
+        if (i == 0) {
+          btn.style.animation = "onclick 0.5s backwards";
           trees.forEach((tree, j) => {
             if (j == 0) {
               val = -220;
@@ -174,8 +175,7 @@ include '../../db.php';
           setTimeout(() => {
             window.location.href = "../";
           }, 600);
-        }
-        else if (i == 3) {
+        } else if (i == 3) {
           document.getElementById("username").value = "";
           document.getElementById("password").value = "";
 
@@ -243,7 +243,6 @@ include '../../db.php';
       }
       return array;
     }
-
   </script>
 </body>
 
