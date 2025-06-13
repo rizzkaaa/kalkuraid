@@ -38,8 +38,8 @@ session_start()
                 </a>
                 <div class="aksi">
                     <div class="papan-aksi">
-                        <a href="#"><i class="fa-regular fa-copy"></i></a>
-                        <a href="#"><i class="fa-solid fa-trash"></i></a>
+                        <a href="../../class/classroom/"><i class="fa-regular fa-copy"></i></a>
+                        <a href="../../class/classroom/"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             </div>
@@ -50,8 +50,8 @@ session_start()
                 </a>
                 <div class="aksi">
                     <div class="papan-aksi">
-                        <a href=""><i class="fa-regular fa-copy"></i></a>
-                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                        <a href="../../class/classroom/"><i class="fa-regular fa-copy"></i></a>
+                        <a href="../../class/classroom/"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             </div>
@@ -62,8 +62,8 @@ session_start()
                 </a>
                 <div class="aksi">
                     <div class="papan-aksi">
-                        <a href=""><i class="fa-regular fa-copy"></i></a>
-                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                        <a href="../../class/classroom/"><i class="fa-regular fa-copy"></i></a>
+                        <a href="../../class/classroom/"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             </div>
@@ -74,8 +74,8 @@ session_start()
                 </a>
                 <div class="aksi">
                     <div class="papan-aksi">
-                        <a href=""><i class="fa-regular fa-copy"></i></a>
-                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                        <a href="../../class/classroom/"><i class="fa-regular fa-copy"></i></a>
+                        <a href="../../class/classroom/"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             </div>
@@ -86,8 +86,8 @@ session_start()
                 </a>
                 <div class="aksi">
                     <div class="papan-aksi">
-                        <a href=""><i class="fa-regular fa-copy"></i></a>
-                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                        <a href="../../class/classroom/"><i class="fa-regular fa-copy"></i></a>
+                        <a href="../../class/classroom/"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             </div>
@@ -98,8 +98,8 @@ session_start()
                 </a>
                 <div class="aksi">
                     <div class="papan-aksi">
-                        <a href="#"><i class="fa-regular fa-copy"></i></a>
-                        <a href="#"><i class="fa-solid fa-trash"></i></a>
+                        <a href="../../class/classroom/"><i class="fa-regular fa-copy"></i></a>
+                        <a href="../../class/classroom/"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             </div>
@@ -123,7 +123,6 @@ session_start()
             const aksi = item.querySelector(".aksi .papan-aksi");
             let timer;
             const showAksi = (e) => {
-                // e.preventDefault();
                 console.log("mousedown");
 
                 timer = setTimeout(() => {
