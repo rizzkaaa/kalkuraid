@@ -16,20 +16,74 @@
 
 <body>
     <div class="container">
-        <div class="nama-user">
-            <p>Rizka Layla Ramadhani</p>
-        </div>
-        <div class="papan-nama-kelas">
-            <p class="nama-kelas">1 TRPL B Pertemuan 1 Kalkulus</p>
-            <div>
-                <p>30 Peserta</p>
-                <p>JAJDADGY</p>
+        
+        <header>
+            <a href="../../dashboard/dosen/" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
+            
+            <div class="nama-user">
+                <p>Rizka Layla Ramadhani</p>
+            </div>
+        </header>
+
+        <div class="wrap-kelas">
+            <div class="overlay"></div>
+            <div class="papan-nama-kelas">
+                <p class="nama-kelas">1 TRPL B Pertemuan 1 Kalkulus</p>
+                <div>
+                    <span>30 Peserta</span>
+                    <span>JAJDADGY</span>
+                </div>
+            </div>
+            <div class="list-peserta">
+                <div class="table-peserta">
+                    <div class="baris-peserta">
+                        <span>Rizka Layla Ramadhani</span>
+                        <span>100</span>
+                    </div>
+                    <div class="baris-peserta">
+                        <span>Alya Zilyanti</span>
+                        <span>100</span>
+                    </div>
+                    <div class="baris-peserta">
+                        <span>Yopa Pitra Ramadhani</span>
+                        <span>100</span>
+                    </div>
+                    <div class="baris-peserta">
+                        <span>Nella Aprilia</span>
+                        <span>100</span>
+                    </div>
+                    <div class="baris-peserta">
+                        <span>Sella Allisya Salsabia</span>
+                        <span>100</span>
+                    </div>
+                    <div class="baris-peserta">
+                        <span>Sella Allisya Salsabia</span>
+                        <span>100</span>
+                    </div>
+                    <div class="baris-peserta">
+                        <span>Sella Allisya Salsabia</span>
+                        <span>100</span>
+                    </div>
+                </div>
+                <div class="btn-peta">
+                    <img src="../../assets/button/btn-peta.png">
+                </div>
+
             </div>
         </div>
-        <div class="list-peserta">
-            <img src="../../assets/board/papan-list-peserta.png" alt="">
-        </div>
     </div>
+
+    <script>
+        const btn = document.querySelector('.btn-peta');
+        btn.addEventListener('click', () => {
+            btn.style.transform = 'translate(10px,20px) scale(1.3)';
+            document.querySelector('.overlay').style.display = 'block';
+            
+            setTimeout(() => {
+                window.location.href = '../../game/map/';
+            }, 500);
+        })
+    </script>
 </body>
 
 </html>

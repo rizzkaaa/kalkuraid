@@ -1,3 +1,19 @@
+<?php
+// $id_user = $_SESSION['id_user'];
+
+// if (isset($id_user)) {
+//   echo 'oke';
+//   $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM users WHERE id_user = '$id_user'"));
+//   $role = $dataUser['peran'];
+//   if ($role == "Mahasiswa") {
+//     header("location: ../../dashboard/mahasiswa/");
+//   } elseif ($role == "Dosen") {
+//     header("location: ../../dashboard/dosen/");
+//   } else {
+//     echo "Peran tidak dikenali.";
+//   }
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +22,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Menu</title>
   <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="../global-style.css" />
+  <link rel="stylesheet" href="../global-style.css" />
 </head>
 
 <body>

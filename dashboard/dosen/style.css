@@ -85,8 +85,11 @@ body {
   z-index: 99;
   top: 30px;
   right: -50px;
+  transform: translateX(550px);
+  transition: all 0.5s;
 }
 .papan-aksi {
+  padding-inline: 25px;
   background-image: url(../../assets/board/papan-aksi.png);
   width: 200px;
   height: 100px;
@@ -94,9 +97,6 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  transform: translateX(550px);
-  padding-inline: 25px;
-  transition: all 0.5s;
 }
 .papan-aksi i {
   color: #591e04;

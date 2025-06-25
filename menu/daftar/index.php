@@ -101,7 +101,7 @@ include '../../db.php';
             tree.style.animation = "";
             tree.style.transform = `translateX(${val}px)`;
           })
-          form.style.transform = 'translateY(-1170px)';
+          form.style.transform = 'translateY(-1200px)';
         }, 600);
 
       });
@@ -152,7 +152,7 @@ include '../../db.php';
         btn.style.animation = "onclick 0.5s";
         setTimeout(() => {
           pw.style.display = 'flex';
-          form.style.transform = "translateY(-2230px)";
+          form.style.transform = "translateY(-2250px)";
         }, 700);
 
       })
@@ -182,7 +182,7 @@ include '../../db.php';
           btnNext.forEach((btnN, i) => {
             btnN.style.animation = "";
           })
-          form.style.transform = 'translateY(-1170px)';
+          form.style.transform = 'translateY(-1200px)';
           setTimeout(() => {
             pw.style.display = 'none';
           }, 1000);

@@ -16,13 +16,13 @@
     <script>
       const button = document.querySelector(".container");
       setTimeout(() => {
-        button.innerHTML = `<a href="./menu/" class=""><div class="button button-play"></div></a>`;
+        button.innerHTML = `<a href="cekSesi.php" class=""><div class="button button-play"></div></a>`;
         const link = document.querySelector(".container a");
         link.addEventListener("click", (event) => {
             event.preventDefault();
           link.style.animation = "fadeOut 1.5s";
           setTimeout(() => {
-            window.location.href = "./menu/";
+            window.location.href = "cekSesi.php";
           }, 1300);
         });
       }, 4500);

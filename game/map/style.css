@@ -1,0 +1,49 @@
+body {
+  background-image: url(../../assets/background/bg-peta.png);
+}
+.container {
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.nama-user {
+  background-image: url(../../assets/board/papan-nama.png);
+  width: 250px;
+  height: 100px;
+  background-size: contain;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 20px;
+  color: #f5d38e;
+  font-size: 20px;
+}
+.nama-user p {
+  width: 72%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wrap-level{
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: rgba(240, 248, 255, 0.548);
+  height: 485px;
+}
+
+.wrap-level .level{
+  width: 100px;
+  margin-inline: 35px;
+}
+.wrap-level .road{
+    position: absolute;
+    bottom: 220px;
+  }

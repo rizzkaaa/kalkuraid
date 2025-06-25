@@ -36,6 +36,4 @@ function generateUsername($nama)
 }
 
 
-// $query = "INSERT INTO users (id_user, username, password, peran) VALUES ('$id_user', '$username', '1234', 'Mahasiswa')";
-
 ?>

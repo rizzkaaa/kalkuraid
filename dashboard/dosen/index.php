@@ -38,8 +38,8 @@ session_start()
                 </a>
                 <div class="aksi">
                     <div class="papan-aksi">
-                        <a href="../../class/classroom/"><i class="fa-regular fa-copy"></i></a>
-                        <a href="../../class/classroom/"><i class="fa-solid fa-trash"></i></a>
+                        <a href="#"><i class="fa-regular fa-copy"></i></a>
+                        <a href="#"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             </div>
@@ -50,8 +50,8 @@ session_start()
                 </a>
                 <div class="aksi">
                     <div class="papan-aksi">
-                        <a href="../../class/classroom/"><i class="fa-regular fa-copy"></i></a>
-                        <a href="../../class/classroom/"><i class="fa-solid fa-trash"></i></a>
+                        <a href="#"><i class="fa-regular fa-copy"></i></a>
+                        <a href="#"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             </div>
@@ -62,8 +62,8 @@ session_start()
                 </a>
                 <div class="aksi">
                     <div class="papan-aksi">
-                        <a href="../../class/classroom/"><i class="fa-regular fa-copy"></i></a>
-                        <a href="../../class/classroom/"><i class="fa-solid fa-trash"></i></a>
+                        <a href="#"><i class="fa-regular fa-copy"></i></a>
+                        <a href="#"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             </div>
@@ -74,8 +74,8 @@ session_start()
                 </a>
                 <div class="aksi">
                     <div class="papan-aksi">
-                        <a href="../../class/classroom/"><i class="fa-regular fa-copy"></i></a>
-                        <a href="../../class/classroom/"><i class="fa-solid fa-trash"></i></a>
+                        <a href="#"><i class="fa-regular fa-copy"></i></a>
+                        <a href="#"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             </div>
@@ -86,8 +86,8 @@ session_start()
                 </a>
                 <div class="aksi">
                     <div class="papan-aksi">
-                        <a href="../../class/classroom/"><i class="fa-regular fa-copy"></i></a>
-                        <a href="../../class/classroom/"><i class="fa-solid fa-trash"></i></a>
+                        <a href="#"><i class="fa-regular fa-copy"></i></a>
+                        <a href="#"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             </div>
@@ -98,8 +98,8 @@ session_start()
                 </a>
                 <div class="aksi">
                     <div class="papan-aksi">
-                        <a href="../../class/classroom/"><i class="fa-regular fa-copy"></i></a>
-                        <a href="../../class/classroom/"><i class="fa-solid fa-trash"></i></a>
+                        <a href="#"><i class="fa-regular fa-copy"></i></a>
+                        <a href="#"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             </div>
@@ -120,15 +120,14 @@ session_start()
         const items = document.querySelectorAll(".btn-class");
 
         items.forEach((item) => {
-            const aksi = item.querySelector(".aksi .papan-aksi");
+            const aksi = item.querySelector(".aksi");
             let timer;
             const showAksi = (e) => {
                 console.log("mousedown");
-
                 timer = setTimeout(() => {
                     console.log("jalan");
 
-                    document.querySelectorAll(".aksi .papan-aksi").forEach(a => a.style.transform = "translateX(550px)");
+                    document.querySelectorAll(".aksi").forEach(a => a.style.transform = "translateX(550px)");
                     aksi.style.transform = "translateX(0)";
                 }, 600)
             };
@@ -148,7 +147,7 @@ session_start()
 
         document.addEventListener("click", function(e) {
             if (!e.target.closest(".btn-class")) {
-                document.querySelectorAll(".aksi .papan-aksi").forEach(div => div.style.transform = "translateX(550px)");
+                document.querySelectorAll(".aksi").forEach(div => div.style.transform = "translateX(550px)");
             }
         });
     </script>
