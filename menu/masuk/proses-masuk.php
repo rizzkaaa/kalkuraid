@@ -19,7 +19,7 @@ if ($cek > 0) {
     $token = bin2hex(random_bytes(32)); // token acak
 
     $expired_at = date('Y-m-d H:i:s', strtotime('+360 days'));
-    mysqli_query($connect, "DELETE FROM user_tokens WHERE user_id='$id_user'");
+    // mysqli_query($connect, "DELETE FROM user_tokens WHERE user_id='$id_user'");
     mysqli_query($connect, "INSERT INTO user_tokens (user_id, token, expired_at) VALUES ('$id_user', '$token', '$expired_at')");
 
     setcookie('remember_token', $token, time() + (86400 * 360), '/', '', true, true);

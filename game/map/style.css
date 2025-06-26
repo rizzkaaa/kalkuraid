@@ -31,19 +31,70 @@ header {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.level-container {
+  width: 100%;
+  background-color: #f0f8ff47;
+  margin-top: 80px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+}
 
-.wrap-level{
+.wrap-level {
   display: flex;
   flex-direction: column-reverse;
-  background-color: rgba(240, 248, 255, 0.548);
-  height: 485px;
+  height: fit-content;
+  margin-left: 20px;
+  width: 100%;
 }
 
-.wrap-level .level{
-  width: 100px;
+.wrap-level .level {
+  width: 80px;
   margin-inline: 35px;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.5s;
 }
-.wrap-level .road{
-    position: absolute;
-    bottom: 220px;
-  }
+.wrap-level .road {
+  position: absolute;
+}
+.wrap-level .road:first-child {
+  transform: translate(-20px, -82px);
+}
+.wrap-level .level:nth-child(2) {
+  transform: translate(0, -90px);
+
+}
+.wrap-level .road:nth-child(3) {
+  transform: translate(-10px, -110px);
+}
+.wrap-level .level:nth-child(4) {
+  align-self: flex-end;
+  transform: translate(-30px, -60px);
+}
+.wrap-level .road:nth-child(5) {
+  transform: translate(-30px, -140px);
+}
+.wrap-level .level:nth-child(6) {
+  transform: translate(10px, -10px);
+}
+.wrap-level .road:nth-child(7) {
+  transform: translate(0, -200px);
+}
+.wrap-level .level:nth-child(8) {
+  align-self: flex-end;
+  transform: translate(-30px, 0);
+}
+.wrap-level .road:nth-child(9) {
+  transform: translate(-10px, -270px);
+}
+.wrap-level .level:nth-child(10) {
+  transform: translate(10px, 40px);
+}
+.wrap-level .road:nth-child(11) {
+  transform: translate(0, -310px);
+}
+.wrap-level .level:nth-child(12) {
+  align-self: flex-end;
+  transform: translate(-40px, 60px);
+}
