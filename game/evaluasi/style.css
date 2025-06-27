@@ -66,6 +66,9 @@ header {
   flex-direction: column;
   align-items: center;
 }
+.daftar-soal::-webkit-scrollbar {
+  display: none;
+}
 
 .card-soal {
   border-radius: 50px;

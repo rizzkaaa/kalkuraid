@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Peta Permainan</title>
     <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="../../global-style.css" />
+    <link rel="stylesheet" href="../../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
 <body>
     <div class="container">
         <header>
-            <a href="../../class/classroom/" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
+            <a href="../../../class/classroom/" class="btn-undo"><img src="../../../assets/button/btn-undo.png" alt=""></a>
 
             <div class="nama-user">
                 <p>Rizka Layla Ramadhani</p>
@@ -25,18 +25,18 @@
 
         <div class="level-container">
             <div class="wrap-level">
-                <img class="road" src="../../assets/component/to-1.png">
-                <img class="level" src="../../assets/component/level-1.png">
-                <img class="road" src="../../assets/component/to-2.png">
-                <img class="level" src="../../assets/component/level-2.png">
-                <img class="road" src="../../assets/component/to-3.png">
-                <img class="level" src="../../assets/component/level-3.png">
-                <img class="road" src="../../assets/component/to-4.png">
-                <img class="level" src="../../assets/component/level-4.png">
-                <img class="road" src="../../assets/component/to-5.png">
-                <img class="level" src="../../assets/component/level-5.png">
-                <img class="road" src="../../assets/component/to-6.png">
-                <img class="level" src="../../assets/component/level-6.png">
+                <img class="road" src="../../../assets/component/to-1.png">
+                <img class="level" src="../../../assets/component/level-1.png">
+                <img class="road" src="../../../assets/component/to-2.png">
+                <img class="level" src="../../../assets/component/level-2.png">
+                <img class="road" src="../../../assets/component/to-3.png">
+                <img class="level" src="../../../assets/component/level-3.png">
+                <img class="road" src="../../../assets/component/to-4.png">
+                <img class="level" src="../../../assets/component/level-4.png">
+                <img class="road" src="../../../assets/component/to-5.png">
+                <img class="level" src="../../../assets/component/level-5.png">
+                <img class="road" src="../../../assets/component/to-6.png">
+                <img class="level" src="../../../assets/component/level-6.png">
 
             </div>
         </div>

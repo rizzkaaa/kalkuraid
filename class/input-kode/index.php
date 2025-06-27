@@ -1,18 +1,13 @@
 <?php
-include '../../db.php';
-
-session_start();
-$id_user = $_SESSION['id_user']; 
-$dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa WHERE id_user = '$id_user'"));
+session_start()
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Mahasiswa</title>
+    <title>Input Kode</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,18 +20,17 @@ $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa W
 <body>
     <div class="container">
         <header>
-            <a href="../../menu/" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
+            <a href="../../dashboard/mahasiswa/" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
 
             <div class="nama-user">
-                <p><?= $dataUser['nama_mhs']?></p>
+                <p>Yopa Pitra Ramadhani</p>
             </div>
         </header>
 
-        <div class="list-btn">
-            <a href="../../class/input-kode/">INPUT KODE</a>
-            <a href="">MATERI</a>
-            <a href="../../class/history-mahasiswa/">HISTORY</a>
-        </div>
+        <form class="wrap-input-code">
+            <input type="text">
+            <button><img src="../../assets/button/btn-masuk-room.png" alt=""></button>
+        </form>
     </div>
 
 </body>

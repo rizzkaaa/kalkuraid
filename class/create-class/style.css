@@ -1,0 +1,163 @@
+body {
+  background-image: url(../../assets/background/bg-dashboard.png);
+}
+.container {
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.nama-user {
+  background-image: url(../../assets/board/papan-nama.png);
+  width: 250px;
+  height: 100px;
+  background-size: contain;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 20px;
+  color: #f5d38e;
+  font-size: 20px;
+}
+.nama-user p {
+  width: 72%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wrap-create {
+  background-image: url(../../assets/board/papan-create-room.png);
+  width: 360px;
+  height: 360px;
+  background-size: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.wrap-input-create {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 70px 48px;
+}
+.input-create {
+  overflow: hidden;
+  width: 110px;
+  margin: 0 10px;
+  height: 90px;
+  text-align: center;
+}
+.input-create p {
+  font-size: 12px;
+  text-align: center;
+}
+
+.input-create:first-child textarea {
+  background: transparent;
+  border: 3px solid #643a00;
+  box-shadow: inset 0 0 4px grey;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  width: 100%;
+  height: 70%;
+}
+.input-create:nth-child(2) input {
+  width: 50%;
+  padding: 5px;
+  font-size: 20px;
+  text-align: center;
+  align-self: center;
+  background: transparent;
+  border: 3px solid #643a00;
+  box-shadow: inset 0 0 4px grey;
+}
+.input-create:nth-child(3) .box-level {
+  border: 3px solid #643a00;
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.input-create:nth-child(3) .box-level input {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #643a00;
+  text-align: center;
+  background: transparent;
+  font-size: 20px;
+}
+
+.input-create:nth-child(4) .box-soal {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.input-create:nth-child(4) .wrap-soal p {
+  font-size: 8px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.input-create:nth-child(4) .wrap-soal input {
+  width: 30px;
+  height: 25px;
+  border: 1px solid #643a00;
+  text-align: center;
+  background: transparent;
+  font-size: 20px;
+}
+
+.select-bar {
+  border: 1px solid #643a00;
+  background-color: #f3c464;
+  width: 250px;
+  position: absolute;
+  border-radius: 10px;
+}
+.hidden{
+  display: none !important;
+}
+.notToClick{
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.select-bar li {
+  list-style: none;
+  background-image: url(../../assets/board/papan-level.png);
+  width: 100%;
+  background-size: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.select-bar img {
+  margin-left: 20px;
+  margin-right: 10px;
+  width: 50px;
+}
+.select-bar span{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+button{
+  background: transparent;
+  border: none;
+}
+button:active{
+  transform: scale(1.5);
+  transition: all 2s;
+}
+button img{
+  width: 150px;
+}

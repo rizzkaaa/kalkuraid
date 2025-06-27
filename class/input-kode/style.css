@@ -5,6 +5,7 @@ body {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  justify-content: space-between;
 }
 
 header {
@@ -32,22 +33,38 @@ header {
   text-overflow: ellipsis;
 }
 
-.list-btn {
-  background-image: url(../../assets/board/papan-menu-mhs.png);
-  width: 300px;
-  height: 400px;
-  background-size: contain;
+.wrap-input-code {
+  background-image: url(../../assets/board/papan-input-kode.png);
+  width: 360px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 50px;
-  gap: 50px;
-  margin-top: 80px;
+  padding-top: 145px;
 }
-.list-btn a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  height: 80px;
+.wrap-input-code input {
+  border: 2px solid #934600;
+  padding: 5px;
+  font-size: 20px;
+  background-color: #c97b147d;
+  border-radius: 20px 17px;
+  width: 180px;
+  text-decoration: underline dotted #934600;
+  text-align: center;
+}
+.wrap-input-code input:focus {
+  outline: none;
+}
+
+button {
+  background: transparent;
+  border: none;
+  margin-top: 20px;
+}
+button:active {
+  transform: scale(1.5);
+  transition: all 2s;
+}
+button img {
+  width: 150px;
 }

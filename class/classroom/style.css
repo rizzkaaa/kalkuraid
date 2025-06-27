@@ -88,7 +88,7 @@ header {
   margin-left: 80px;
   height: 340px;
   overflow-y: auto;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y mandatory; 
 }
 .table-peserta::-webkit-scrollbar {
   display: none;

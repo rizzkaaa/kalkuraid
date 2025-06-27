@@ -1,5 +1,5 @@
 body {
-  background-image: url(../../assets/background/bg-peta.png);
+  background-image: url(../../../assets/background/bg-peta.png);
 }
 .container {
   flex-direction: column;
@@ -14,7 +14,7 @@ header {
   width: 100%;
 }
 .nama-user {
-  background-image: url(../../assets/board/papan-nama.png);
+  background-image: url(../../../assets/board/papan-nama.png);
   width: 250px;
   height: 100px;
   background-size: contain;

@@ -1,5 +1,10 @@
 <?php
-session_start()
+include '../../db.php';
+
+session_start();
+$id_user = $_SESSION['id_user'];
+$dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM dosen WHERE id_user = '$id_user'"));
+$id_dosen = $dataUser['id_dosen'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,9 +24,13 @@ session_start()
 
 <body>
     <div class="container">
-        <div class="nama-user">
-            <p>Rizka Layla Ramadhani</p>
-        </div>
+        <header>
+            <a href="../../menu/" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
+
+            <div class="nama-user">
+                <p><?= $dataUser['nama_dosen'] ?></p>
+            </div>
+        </header>
 
         <div class="btn-create">
             <img src="../../assets/button/btn-create.png" alt="">
@@ -31,126 +40,83 @@ session_start()
         </div>
 
         <div class="list-kelas">
+            <?php
+            $dataClass = mysqli_query($connect, "SELECT * FROM classroom WHERE id_dosen = '$id_dosen'");
+            if (mysqli_num_rows($dataClass) > 0) {
+                $index = 1;
+                while ($rowClass = mysqli_fetch_assoc($dataClass)) {
+                    $src = ($index == 1)
+                        ? "../../assets/button/btn-uplist-class.png"
+                        : "../../assets/button/btn-list-class.png";
+            ?>
+            <div class="btn-class">
+                <img src="<?= $src ?>" alt="">
+                <a href="../../class/classroom/">
+                    <span><?= $rowClass['nama_room'] ?></span>
+                </a>
+                <div class="aksi">
+                    <div class="papan-aksi">
+                        <a href="#"><i class="fa-regular fa-copy"></i></a>
+                        <a href="../../controller/action/hapus-kelas.php?id_room=<?=$rowClass['id_room']?>" ><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+            </div>
+            <?php $index++; }
+            } else { ?>
             <div class="btn-class">
                 <img src="../../assets/button/btn-uplist-class.png" alt="">
                 <a href="../../class/classroom/">
-                    <span>1 TRPL B: Pertemuan 1</span>
-                </a>
-                <div class="aksi">
-                    <div class="papan-aksi">
-                        <a href="#"><i class="fa-regular fa-copy"></i></a>
-                        <a href="#"><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-class">
-                <img src="../../assets/button/btn-list-class.png" alt="">
-                <a href="../../class/classroom/">
-                    <span>Materi Teorema Dasar Kalkulus dan Luas Kurva dengan Teori Rienmann</span>
-                </a>
-                <div class="aksi">
-                    <div class="papan-aksi">
-                        <a href="#"><i class="fa-regular fa-copy"></i></a>
-                        <a href="#"><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-class">
-                <img src="../../assets/button/btn-list-class.png" alt="">
-                <a href="../../class/classroom/">
                     <span>Tidak ada kelas</span>
                 </a>
-                <div class="aksi">
-                    <div class="papan-aksi">
-                        <a href="#"><i class="fa-regular fa-copy"></i></a>
-                        <a href="#"><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
             </div>
-            <div class="btn-class">
-                <img src="../../assets/button/btn-list-class.png" alt="">
-                <a href="../../class/classroom/">
-                    <span>Tidak ada kelas</span>
-                </a>
-                <div class="aksi">
-                    <div class="papan-aksi">
-                        <a href="#"><i class="fa-regular fa-copy"></i></a>
-                        <a href="#"><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-class">
-                <img src="../../assets/button/btn-list-class.png" alt="">
-                <a href="../../class/classroom/">
-                    <span>Tidak ada kelas</span>
-                </a>
-                <div class="aksi">
-                    <div class="papan-aksi">
-                        <a href="#"><i class="fa-regular fa-copy"></i></a>
-                        <a href="#"><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-class">
-                <img src="../../assets/button/btn-list-class.png" alt="">
-                <a href="../../class/classroom/">
-                    <span>Tidak ada kelas</span>
-                </a>
-                <div class="aksi">
-                    <div class="papan-aksi">
-                        <a href="#"><i class="fa-regular fa-copy"></i></a>
-                        <a href="#"><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+            <?php } ?>
 
-    <script>
-        const btnClass = document.querySelectorAll(".btn-class");
-        let value = -10;
 
-        btnClass.forEach((btn, i) => {
-            if (i != 0) {
-                btn.style.transform = `translateY(${value}px)`;
-                value -= 20;
-            }
-        })
+            <script>
+                const btnClass = document.querySelectorAll(".btn-class");
+                let value = -10;
 
-        const items = document.querySelectorAll(".btn-class");
+                btnClass.forEach((btn, i) => {
+                    if (i != 0) {
+                        btn.style.transform = `translateY(${value}px)`;
+                        value -= 20;
+                    }
+                })
 
-        items.forEach((item) => {
-            const aksi = item.querySelector(".aksi");
-            let timer;
-            const showAksi = (e) => {
-                console.log("mousedown");
-                timer = setTimeout(() => {
-                    console.log("jalan");
+                const items = document.querySelectorAll(".btn-class");
 
-                    document.querySelectorAll(".aksi").forEach(a => a.style.transform = "translateX(550px)");
-                    aksi.style.transform = "translateX(0)";
-                }, 600)
-            };
+                items.forEach((item) => {
+                    const aksi = item.querySelector(".aksi");
+                    let timer;
+                    const showAksi = (e) => {
+                        console.log("mousedown");
+                        timer = setTimeout(() => {
+                            console.log("jalan");
 
-            const cancel = () => clearTimeout(timer);
+                            document.querySelectorAll(".aksi").forEach(a => a.style.transform = "translateX(550px)");
+                            aksi.style.transform = "translateX(0)";
+                        }, 600)
+                    };
 
-            // Desktop
-            item.addEventListener("mousedown", showAksi);
-            item.addEventListener("mouseup", cancel);
-            item.addEventListener("mouseleave", cancel);
+                    const cancel = () => clearTimeout(timer);
 
-            // Mobile
-            item.addEventListener("touchstart", showAksi);
-            item.addEventListener("touchend", cancel);
-            item.addEventListener("touchcancel", cancel);
-        });
+                    // Desktop
+                    item.addEventListener("mousedown", showAksi);
+                    item.addEventListener("mouseup", cancel);
+                    item.addEventListener("mouseleave", cancel);
 
-        document.addEventListener("click", function(e) {
-            if (!e.target.closest(".btn-class")) {
-                document.querySelectorAll(".aksi").forEach(div => div.style.transform = "translateX(550px)");
-            }
-        });
-    </script>
+                    // Mobile
+                    item.addEventListener("touchstart", showAksi);
+                    item.addEventListener("touchend", cancel);
+                    item.addEventListener("touchcancel", cancel);
+                });
+
+                document.addEventListener("click", function(e) {
+                    if (!e.target.closest(".btn-class")) {
+                        document.querySelectorAll(".aksi").forEach(div => div.style.transform = "translateX(550px)");
+                    }
+                });
+            </script>
 </body>
 
 </html>
