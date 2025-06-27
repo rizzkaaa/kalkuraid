@@ -1,3 +1,13 @@
+<?php
+include '../../db.php';
+if (!isset($_GET["id_room"]) || empty($_GET["id_room"])) {
+    die("Error: ID tidak ditemukan.");
+}
+
+$id_room = $_GET["id_room"];
+$dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom WHERE id_room='$id_room'"));
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,57 +26,48 @@
 
 <body>
     <div class="container">
-        
+
         <header>
             <a href="../../dashboard/dosen/" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
-            
+
             <div class="nama-user">
-                <p>Rizka Layla Ramadhani</p>
+                <p><?= $dataClass['nama_room'] ?></p>
             </div>
         </header>
 
         <div class="wrap-kelas">
             <div class="overlay"></div>
             <div class="papan-nama-kelas">
-                <p class="nama-kelas">1 TRPL B Pertemuan 1 Kalkulus</p>
+                <p class="nama-kelas"><?= $dataClass['nama_room'] ?></p>
                 <div>
-                    <span>30 Peserta</span>
-                    <span>JAJDADGY</span>
+                    <span><?= $dataClass['jumlah_peserta'] ?> Peserta</span>
+                    <span><?= $dataClass['id_room'] ?></span>
                 </div>
             </div>
             <div class="list-peserta">
                 <div class="table-peserta">
-                    <div class="baris-peserta">
-                        <span>Rizka Layla Ramadhani</span>
-                        <span>100</span>
-                    </div>
-                    <div class="baris-peserta">
-                        <span>Alya Zilyanti</span>
-                        <span>100</span>
-                    </div>
-                    <div class="baris-peserta">
-                        <span>Yopa Pitra Ramadhani</span>
-                        <span>100</span>
-                    </div>
-                    <div class="baris-peserta">
-                        <span>Nella Aprilia</span>
-                        <span>100</span>
-                    </div>
-                    <div class="baris-peserta">
-                        <span>Sella Allisya Salsabia</span>
-                        <span>100</span>
-                    </div>
-                    <div class="baris-peserta">
-                        <span>Sella Allisya Salsabia</span>
-                        <span>100</span>
-                    </div>
-                    <div class="baris-peserta">
-                        <span>Sella Allisya Salsabia</span>
-                        <span>100</span>
-                    </div>
+                    <?php
+                    $dataMhs = mysqli_query($connect, "SELECT a.*, b.nama_mhs FROM detail_room a LEFT JOIN mahasiswa b ON a.id_mhs=b.id_mhs WHERE id_room='$id_room'");
+                    if (mysqli_num_rows($dataMhs) > 0) {
+                        while ($rowMhs = mysqli_fetch_assoc($dataMhs)) {
+                    ?>
+                            <div class="baris-peserta">
+                                <span><?= $rowMhs['nama_mhs'] ?></span>
+                                <span><?= $rowMhs['total_skor'] ?></span>
+                            </div>
+                    <?php
+                        }
+                    } else {?>
+                        <div class="baris-peserta">
+                            <span class="single-span">Tidak ada data</span>
+                        </div>
+                    <?php }
+                    ?>
+
                 </div>
+                
                 <div class="btn-peta">
-                    <img src="../../assets/button/btn-peta.png">
+                    <img data-id="<?=$id_room?>"  src="../../assets/button/btn-peta.png">
                 </div>
 
             </div>
@@ -74,15 +75,18 @@
     </div>
 
     <script>
-        const btn = document.querySelector('.btn-peta');
+        const btn = document.querySelector('.btn-peta img');
         btn.addEventListener('click', () => {
-            btn.style.transform = 'translate(10px,20px) scale(1.3)';
+            btn.style.transform = 'scale(1.3)';
             document.querySelector('.overlay').style.display = 'block';
+            const id = btn.getAttribute('data-id');
             
             setTimeout(() => {
-                window.location.href = '../../game/map/';
+                console.log(id);
+                
+                window.location.href = `../../game/map/map-evaluasi/?id_room=${id}`
             }, 500);
-        })
+        }) 
     </script>
 </body>
 

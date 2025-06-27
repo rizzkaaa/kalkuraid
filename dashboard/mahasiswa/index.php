@@ -4,7 +4,7 @@ include '../../db.php';
 session_start();
 $id_user = $_SESSION['id_user']; 
 $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa WHERE id_user = '$id_user'"));
-?>
+echo $dataUser['id_mhs'];?>
 
 <!DOCTYPE html>
 <html lang="en">

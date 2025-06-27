@@ -1,10 +1,20 @@
+<?php
+include '../../../db.php';
+if (!isset($_GET["id_room"]) || empty($_GET["id_room"])) {
+    die("Error: ID tidak ditemukan.");
+}
+
+$id_room = $_GET["id_room"];
+$dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom WHERE id_room='$id_room'"));
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Peta Evaluasi</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="../../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,28 +26,24 @@
 <body>
     <div class="container">
         <header>
-            <a href="../../../class/classroom/" class="btn-undo"><img src="../../../assets/button/btn-undo.png" alt=""></a>
+            <a href="../../../class/classroom/?id_room=<?= $id_room ?>" class="btn-undo"><img src="../../../assets/button/btn-undo.png" alt=""></a>
 
             <div class="nama-user">
-                <p>Rizka Layla Ramadhani</p>
+                <p><?= $dataClass['nama_room'] ?></p>
             </div>
         </header>
 
         <div class="level-container">
             <div class="wrap-level">
-                <img class="road" src="../../../assets/component/to-1.png">
-                <img class="level" src="../../../assets/component/level-1.png">
-                <img class="road" src="../../../assets/component/to-2.png">
-                <img class="level" src="../../../assets/component/level-2.png">
-                <img class="road" src="../../../assets/component/to-3.png">
-                <img class="level" src="../../../assets/component/level-3.png">
-                <img class="road" src="../../../assets/component/to-4.png">
-                <img class="level" src="../../../assets/component/level-4.png">
-                <img class="road" src="../../../assets/component/to-5.png">
-                <img class="level" src="../../../assets/component/level-5.png">
-                <img class="road" src="../../../assets/component/to-6.png">
-                <img class="level" src="../../../assets/component/level-6.png">
-
+                <?php
+                $dataLevel = mysqli_query($connect, "SELECT * FROM detail_level WHERE id_room='$id_room' ORDER BY id_level ASC");
+                $no = 1;
+                while ($rowLevel = mysqli_fetch_assoc($dataLevel)) { ?>
+                    <img class="road" src="../../../assets/component/to-<?=$no?>.png">
+                    <img class="level" data-id="<?=$rowLevel['id_detail_level']?>" src="../../../assets/component/level-<?=$rowLevel['id_level']?>.png">
+                <?php $no++;
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -46,10 +52,11 @@
         const levels = document.querySelectorAll('.level');
         levels.forEach(level => {
             level.addEventListener('click', () => {
+                const id = level.getAttribute('data-id');
                 const currentTransform = getComputedStyle(level).transform;
                 level.style.transform = currentTransform + 'scale(1.3)';
                 setTimeout(() => {
-                    window.location.href = '../evaluasi/';
+                    window.location.href = `../../evaluasi/?id_detail_level=${id}`;
                 }, 500)
             })
         })

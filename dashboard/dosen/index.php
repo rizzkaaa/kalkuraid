@@ -41,7 +41,7 @@ $id_dosen = $dataUser['id_dosen'];
 
         <div class="list-kelas">
             <?php
-            $dataClass = mysqli_query($connect, "SELECT * FROM classroom WHERE id_dosen = '$id_dosen'");
+            $dataClass = mysqli_query($connect, "SELECT * FROM classroom WHERE id_dosen = '$id_dosen' ORDER BY tgl_buat DESC");
             if (mysqli_num_rows($dataClass) > 0) {
                 $index = 1;
                 while ($rowClass = mysqli_fetch_assoc($dataClass)) {
@@ -51,12 +51,13 @@ $id_dosen = $dataUser['id_dosen'];
             ?>
             <div class="btn-class">
                 <img src="<?= $src ?>" alt="">
-                <a href="../../class/classroom/">
+                <a href="../../class/classroom/?id_room=<?=$rowClass['id_room']?>">
                     <span><?= $rowClass['nama_room'] ?></span>
                 </a>
                 <div class="aksi">
                     <div class="papan-aksi">
-                        <a href="#"><i class="fa-regular fa-copy"></i></a>
+                        <a href="../../controller/action/copy-kelas.php?id_room=<?=$rowClass['id_room']?>"><i class="fa-regular fa-copy"></i></a>
+                        <a href="../../class/edit-class?id_room=<?=$rowClass['id_room']?>"><i class="fa-solid fa-pencil"></i></a>
                         <a href="../../controller/action/hapus-kelas.php?id_room=<?=$rowClass['id_room']?>" ><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>

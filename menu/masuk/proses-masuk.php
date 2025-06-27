@@ -15,6 +15,7 @@ if ($cek > 0) {
     $data = mysqli_fetch_assoc($result);
     $id_user = $data['id_user'];
     $_SESSION['id_user'] = $id_user;
+    $_SESSION['peran'] = $data['peran'];
 
     $token = bin2hex(random_bytes(32)); // token acak
 
@@ -27,14 +28,14 @@ if ($cek > 0) {
 
     if ($data['peran'] == "Mahasiswa") {
         header("location: ../../dashboard/mahasiswa/");
-        exit();
     } elseif ($data['peran'] == "Dosen") {
         header("location: ../../dashboard/dosen/");
-        exit();
     } else {
         echo "Peran tidak dikenali.";
-        exit();
     }
+    
+    exit();
+
 } else {
     header('location: ./?pesan=gagal');
 }
