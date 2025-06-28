@@ -22,7 +22,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $soalLevel = mysqli_real_escape_string($connect, $_POST['soal-level' . $i]);
 
             $insertDetailLevel = mysqli_query($connect, "INSERT INTO detail_level (id_detail_level, id_room, id_level, jumlah_soal) VALUES ( '$id_detail_level', '$id_room', '$level', '$soalLevel')");
+
+            $dataPerSoal = mysqli_query($connect, "SELECT * FROM soal WHERE id_level=$level ORDER BY RAND() LIMIT $soalLevel");
+            while($rowSoal = mysqli_fetch_assoc($dataPerSoal)){
+            $id_detail_soal = generateID();
+            $id_soal = $rowSoal['id_soal'];
+
+                mysqli_query($connect, "INSERT INTO detail_soal (id_detail_soal, id_detail_level, id_soal) VALUES ('$id_detail_soal', '$id_detail_level', '$id_soal')");
+            }
         }
+
+
 
         if ($insertClassroom && $updateClassroom && $insertDetailLevel) {
             $peran = $_SESSION['peran'];

@@ -1,15 +1,22 @@
 <?php
 include 'db.php';
 
-// mysqli_query($connect, "ALTER TABLE jawaban_mhs
-// ADD COLUMN id_detail_soal VARCHAR(20),
-// ADD CONSTRAINT fk_detail_soal
-// FOREIGN KEY (id_detail_soal)
-// REFERENCES detail_soal(id_detail_soal)
-// ON DELETE CASCADE
-// ON UPDATE CASCADE;");
+mysqli_query($connect, "CREATE TABLE detail_soal (
+    id_detail_soal VARCHAR(20) PRIMARY KEY,
+    id_detail_level VARCHAR(20),
+    id_soal INT,
+    
+    FOREIGN KEY (id_detail_level)
+        REFERENCES detail_level(id_detail_level)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+        
+    FOREIGN KEY (id_soal)
+        REFERENCES soal(id_soal)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE)");
 
-// $test = mysqli_query($connect, "DESC detail_soal");
+$test = mysqli_query($connect, "DESC detailsoal");
 
 // while ($row = mysqli_fetch_assoc($test)) {
 //     echo '<pre>';

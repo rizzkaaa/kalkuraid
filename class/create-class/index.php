@@ -33,7 +33,7 @@ if ($peran == "Mahasiswa") {
 <body>
     <div class="container">
         <header>
-            <a href="../../dashboard/dosen/" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
+            <a href="../../dashboard/<?=strtolower($peran)?>/" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
 
             <div class="nama-user">
                 <p><?= $dataUser['nama'] ?></p>

@@ -4,7 +4,7 @@ include '../../db.php';
 session_start();
 $id_user = $_SESSION['id_user']; 
 $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa WHERE id_user = '$id_user'"));
-echo $dataUser['id_mhs'];?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +25,7 @@ echo $dataUser['id_mhs'];?>
 <body>
     <div class="container">
         <header>
-            <a href="../../menu/" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
+            <a href="../../logout.php" class="btn-undo"><img src="../../assets/button/btn-logout.png" alt=""></a>
 
             <div class="nama-user">
                 <p><?= $dataUser['nama_mhs']?></p>
@@ -33,9 +33,9 @@ echo $dataUser['id_mhs'];?>
         </header>
 
         <div class="list-btn">
-            <a href="../../class/input-kode/">INPUT KODE</a>
+            <a href="../../class/input-kode/?id_mhs=<?= $dataUser['id_mhs']?>">INPUT KODE</a>
             <a href="">MATERI</a>
-            <a href="../../class/history-mahasiswa/">HISTORY</a>
+            <a href="../../class/class-list/?id_mhs=<?= $dataUser['id_mhs']?>">KELAS</a>
         </div>
     </div>
 

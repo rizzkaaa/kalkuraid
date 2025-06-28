@@ -38,4 +38,6 @@ body {
 }
 .btn-undo {
   width: 100px;
+  background: transparent;
+  border: none;
 }

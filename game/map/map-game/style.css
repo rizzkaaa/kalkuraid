@@ -33,7 +33,6 @@ header {
 }
 .level-container {
   width: 100%;
-  background-color: #f0f8ff47;
   margin-top: 80px;
   height: 500px;
   display: flex;
@@ -48,6 +47,9 @@ header {
   width: 100%;
 }
 
+.disabled{
+  filter: grayscale(100%);
+}
 .wrap-level .level {
   width: 80px;
   margin-inline: 35px;
@@ -58,43 +60,105 @@ header {
 .wrap-level .road {
   position: absolute;
 }
+.wrap-level .lock {
+  position: absolute;
+  /* display: none; */
+}
+
+.lock img{
+  width: 25px;
+}
+.lock-animation{
+  animation: lock 1s;
+}
+.hidden{
+  display: none;
+}
 .wrap-level .road:first-child {
   transform: translate(-20px, -82px);
 }
 .wrap-level .level:nth-child(2) {
   transform: translate(0, -90px);
-
 }
-.wrap-level .road:nth-child(3) {
+.wrap-level .lock:nth-child(3) {
+  transform: translate(60px, -115px);
+  z-index: 2;
+}
+.wrap-level .road:nth-child(4) {
   transform: translate(-10px, -110px);
 }
-.wrap-level .level:nth-child(4) {
+.wrap-level .level:nth-child(5) {
   align-self: flex-end;
   transform: translate(-30px, -60px);
 }
-.wrap-level .road:nth-child(5) {
-  transform: translate(-30px, -140px);
-}
-.wrap-level .level:nth-child(6) {
-  transform: translate(10px, -10px);
+.wrap-level .lock:nth-child(6) {
+  transform: translate(60px, -165px);
+  align-self: center;
+  z-index: 2;
 }
 .wrap-level .road:nth-child(7) {
-  transform: translate(0, -200px);
+  transform: translate(-30px, -140px);
 }
 .wrap-level .level:nth-child(8) {
+  transform: translate(10px, -10px);
+}
+.wrap-level .lock:nth-child(9) {
+  transform: translate(70px, -200px);
+  z-index: 2;
+}
+.wrap-level .road:nth-child(10) {
+  transform: translate(0, -200px);
+}
+.wrap-level .level:nth-child(11) {
   align-self: flex-end;
   transform: translate(-30px, 0);
 }
-.wrap-level .road:nth-child(9) {
+.wrap-level .lock:nth-child(12) {
+  transform: translate(70px, -265px);
+    align-self: center;
+  z-index: 2;
+}
+.wrap-level .road:nth-child(13) {
   transform: translate(-10px, -270px);
 }
-.wrap-level .level:nth-child(10) {
+.wrap-level .level:nth-child(14) {
   transform: translate(10px, 40px);
 }
-.wrap-level .road:nth-child(11) {
+.wrap-level .lock:nth-child(15) {
+  transform: translate(75px, -315px);
+  z-index: 2;
+}
+.wrap-level .road:nth-child(16) {
   transform: translate(0, -310px);
 }
-.wrap-level .level:nth-child(12) {
+.wrap-level .level:nth-child(17) {
   align-self: flex-end;
   transform: translate(-40px, 60px);
+}
+.wrap-level .lock:nth-child(18) {
+  transform: translate(55px, -360px);
+  align-self: center;
+  z-index: 2;
+}
+
+
+@keyframes lock {
+  0%{
+    transform: rotate(45deg);
+  } 
+  20%{
+    transform: rotate(-45deg);
+  }
+  40%{
+    transform: rotate(45deg);
+  } 
+  60%{
+    transform: rotate(-45deg);
+  }
+  80%{
+    transform: rotate(45deg);
+  } 
+  100%{
+    transform: rotate(0);
+  }
 }

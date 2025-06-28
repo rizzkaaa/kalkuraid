@@ -1,5 +1,14 @@
 <?php
-session_start()
+session_start();
+include '../../db.php';
+
+if (!isset($_GET["id_mhs"]) || empty($_GET["id_mhs"])) {
+    die("Error: ID tidak ditemukan.");
+}
+
+$id_mhs = $_GET["id_mhs"];
+$dataMhs = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa WHERE id_mhs = '$id_mhs'"));
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,13 +32,14 @@ session_start()
             <a href="../../dashboard/mahasiswa/" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
 
             <div class="nama-user">
-                <p>Yopa Pitra Ramadhani</p>
+                <p><?=$dataMhs['nama_mhs']?></p>
             </div>
         </header>
 
-        <form class="wrap-input-code">
-            <input type="text">
-            <button><img src="../../assets/button/btn-masuk-room.png" alt=""></button>
+        <form class="wrap-input-code" method="POST" action="../../controller/form/handle-input-code.php">
+            <input type="text" name="id_room" required>
+            <input type="hidden" name="id_mhs" value="<?=$id_mhs?>">
+            <button type="submit"><img src="../../assets/button/btn-masuk-room.png" alt=""></button>
         </form>
     </div>
 
