@@ -33,24 +33,39 @@ $id_room = $dataClass['id_room'];
         </header>
 
         <div class="level-container">
-            <input type="hidden" id="id_detail_room" value="<?=$id_detail_room?>">
+            <input type="hidden" id="id_detail_room" value="<?= $id_detail_room ?>">
             <div class="wrap-level">
                 <?php
                 $dataLevel = mysqli_query($connect, "SELECT * FROM detail_level WHERE id_room='$id_room' ORDER BY id_level ASC");
                 $no = 1;
+                $prev_skor_ada = true; 
+
                 while ($rowLevel = mysqli_fetch_assoc($dataLevel)) {
                     $id_detail_level = $rowLevel['id_detail_level'];
                     $dataSkor = mysqli_query($connect, "SELECT * FROM skor_level WHERE id_detail_level='$id_detail_level' AND id_detail_room='$id_detail_room'");
+                    $skor_ada = mysqli_num_rows($dataSkor) > 0;
+
+                    $is_disabled = !$prev_skor_ada;
+
                 ?>
                     <img class="road" src="../../../assets/component/to-<?= $no ?>.png">
-                    <img class="level <?= mysqli_num_rows($dataSkor) <= 0 && $no != 1 ? 'disabled' : '' ?>" data-id="<?= $rowLevel['id_detail_level'] ?>" src="../../../assets/component/level-<?= $rowLevel['id_level'] ?>.png">
-                    <div class="lock <?= mysqli_num_rows($dataSkor) <= 0 && $no != 1 ? '' : 'hidden'?>">
+
+                    <img
+                        class="level <?= $is_disabled ? 'disabled' : '' ?>"
+                        data-id="<?= $rowLevel['id_detail_level'] ?>"
+                        src="../../../assets/component/level-<?= $rowLevel['id_level'] ?>.png">
+
+                    <div class="lock <?= $is_disabled ? '' : 'hidden' ?>">
                         <img class="lock-animation" src="../../../assets/component/gembok.png" alt="">
                     </div>
-                <?php $no++;
+
+                <?php
+                    $prev_skor_ada = $skor_ada;
+                    $no++;
                 }
                 ?>
             </div>
+
         </div>
     </div>
 
@@ -74,7 +89,7 @@ $id_room = $dataClass['id_room'];
         locks.forEach(lock => {
             lock.addEventListener('click', () => {
                 console.log(lock);
-                
+
                 const img = lock.querySelector('img');
                 img.classList.remove('lock-animation');
                 void img.offsetWidth;

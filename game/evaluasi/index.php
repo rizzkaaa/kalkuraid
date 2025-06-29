@@ -5,13 +5,18 @@ if (!isset($_GET["id_detail_level"]) || empty($_GET["id_detail_level"])) {
 }
 
 $id_detail_level = $_GET["id_detail_level"];
-$dataLevel = mysqli_fetch_assoc(mysqli_query($connect, "SELECT a.id_room, b.* FROM detail_level a INNER JOIN level b ON a.id_level=b.id_level WHERE a.id_detail_level='$id_detail_level'"));
+$dataLevel = mysqli_fetch_assoc(mysqli_query($connect, "SELECT a.id_room, a.jumlah_soal, b.* FROM detail_level a INNER JOIN level b ON a.id_level=b.id_level WHERE a.id_detail_level='$id_detail_level'"));
 
 $id_room = $dataLevel['id_room'];
 $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom WHERE id_room='$id_room'"));
-// var_dump();
 
-// $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM detail_soal WHERE id_detail_level='$id_detail_level'"));
+$jumlah_soal = $dataLevel['jumlah_soal'];
+$dataSoal = mysqli_query($connect, "SELECT a.id_detail_soal, b.* FROM detail_soal a INNER JOIN soal b ON a.id_soal=b.id_soal WHERE id_detail_level='$id_detail_level'");
+$fullSoal = true;
+
+if(mysqli_num_rows($dataSoal) != $jumlah_soal){
+    $fullSoal = false;    
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +37,7 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
 <body>
     <div class="container">
         <header>
-            <a href="../map/map-evaluasi/?id_room=<?= $id_room ?>" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
+            <a href="<?= $fullSoal ? '../map/map-evaluasi/?id_room='.$id_room : ''?>" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
 
             <div class="nama-user">
                 <p><?= $dataClass['nama_room'] ?></p>
@@ -43,16 +48,22 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
             <div class="papan-judul">
                 <h2>LV <?= $dataLevel['id_level'] ?></h2>
                 <p><?= $dataLevel['nama_level'] ?></p>
+                <p><?= var_dump($fullSoal) ?></p>
             </div>
             <div class="daftar-soal">
                 <?php
-                $dataSoal = mysqli_query($connect, "SELECT a.id_detail_soal, b.* FROM detail_soal a INNER JOIN soal b ON a.id_soal=b.id_soal WHERE id_detail_level='$id_detail_level'");
                 $no = 0;
                 while ($rowSoal = mysqli_fetch_assoc($dataSoal)) {
                     $no++;
                 ?>
                     <div class="swipe-soal">
                         <div class="scroll-soal">
+                            <div class="aksi">
+                                <div class="papan-aksi">
+                                    <a href=""><i class="fa-solid fa-pencil"></i></a>
+                                    <a href="../../controller/action/hapus-soal.php?id_detail_soal=<?= $rowSoal['id_detail_soal']?>&&id_detail_level=<?=$id_detail_level?>"><i class="fa-solid fa-trash"></i></a>
+                                </div>
+                            </div>
                             <div class="card-soal soal-<?= $no % 2 == 0 ? 'brown' : 'green' ?>">
                                 <div class="wrap-soal">
                                     <div class="no-soal">
@@ -124,10 +135,10 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
                                                         <?php
                                                         for ($i = 1; $i <= 4; $i++) { ?>
                                                             <span>
-                                                                <?php if ($rowJawaban['jawaban'] == 'opsi_'.$i) {
+                                                                <?php if ($rowJawaban['jawaban'] == 'opsi_' . $i) {
                                                                     echo $rowJawaban['benar'] ? '&#9989;' : '&#10060;';
                                                                 } ?>
-                                                                
+
                                                             </span>
                                                             <?php
                                                             if ($i != 4) { ?>
@@ -155,323 +166,11 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
 
                 <?php }
                 ?>
-
-                <!-- <div class="swipe-soal">
-                    <div class="scroll-soal">
-                        <div class="card-soal soal-brown">
-                            <div class="wrap-soal">
-                                <div class="no-soal">
-                                    <p>Soal 1</p>
-                                </div>
-                                <div class="soal">
-                                    <img src="../../assets/soal/contoh-soal.png" alt="">
-                                    <p>Hitunglah nilai dari gambar di atas ...</p>
-                                </div>
-                            </div>
-                            <ul class="wrap-opsi">
-                                <li><label for="soal2-opsi1">
-                                        <p><span>&#10004;</span></p><input type="radio" name="jawaban2" class="opsi" id="soal2-opsi1"><span>ln∣x+2∣−ln∣x+1∣+C</span>
-                                    </label></li>
-                                <li><label for="soal2-opsi2">
-                                        <p><span>&#10004;</span></p><input type="radio" name="jawaban2" class="opsi" id="soal2-opsi2"><span>ln∣x+2∣−ln∣x+1∣+C</span>
-                                    </label></li>
-                                <li><label for="soal2-opsi3">
-                                        <p><span>&#10004;</span></p><input type="radio" name="jawaban2" class="opsi" id="soal2-opsi3"><span>ln∣x+2∣−ln∣x+1∣+C</span>
-                                    </label></li>
-                                <li><label for="soal2-opsi4">
-                                        <p><span>&#10004;</span></p><input type="radio" name="jawaban2" class="opsi" id="soal2-opsi4"><span>ln∣x+2∣−ln∣x+1∣+C</span>
-                                    </label></li>
-                            </ul>
-                            <div class="wrap-jawaban">
-                                <label for="soal2">Lihat Jawaban</label>
-                            </div>
-                        </div>
-
-                        <input type="checkbox" class="toggle-nilai" id="soal2">
-                        <div class="card-nilai nilai-brown">
-                            <div class="tabel-nilai">
-                                <div class="rows head">
-                                    Daftar Nilai
-                                </div>
-                                <div class="rows head">
-                                    <div class="head-rows">
-                                        Nama
-                                    </div>
-                                    <div class="garis"></div>
-                                    <div class="head-rows">
-                                        <p>Opsi</p>
-                                        <div>
-                                            <span>1</span>
-                                            <span>2</span>
-                                            <span>3</span>
-                                            <span>4</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="daftar-nilai">
-                                    <div class="rows">
-                                        <div class="data-rows"><span>Rizka Layla Ramadhani</span></div>
-                                        <div class="garis"></div>
-                                        <div class="data-rows">
-                                            <span>x</span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="rows">
-                                        <div class="data-rows"><span>Rizka Layla Ramadhani</span></div>
-                                        <div class="garis"></div>
-                                        <div class="data-rows">
-                                            <span>x</span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="rows">
-                                        <div class="data-rows"><span>Rizka Layla Ramadhani</span></div>
-                                        <div class="garis"></div>
-                                        <div class="data-rows">
-                                            <span>x</span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="rows">
-                                        <div class="data-rows"><span>Rizka Layla Ramadhani</span></div>
-                                        <div class="garis"></div>
-                                        <div class="data-rows">
-                                            <span>x</span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="rows">
-                                        <div class="data-rows"><span>Rizka Layla Ramadhani</span></div>
-                                        <div class="garis"></div>
-                                        <div class="data-rows">
-                                            <span>x</span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="rows">
-                                        <div class="data-rows"><span>Rizka Layla Ramadhani</span></div>
-                                        <div class="garis"></div>
-                                        <div class="data-rows">
-                                            <span>x</span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="rows">
-                                        <div class="data-rows"><span>Rizka Layla Ramadhani</span></div>
-                                        <div class="garis"></div>
-                                        <div class="data-rows">
-                                            <span>x</span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="rows">
-                                        <div class="data-rows"><span>Rizka Layla Ramadhani</span></div>
-                                        <div class="garis"></div>
-                                        <div class="data-rows">
-                                            <span>x</span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="rows">
-                                        <div class="data-rows"><span>Rizka Layla Ramadhani</span></div>
-                                        <div class="garis"></div>
-                                        <div class="data-rows">
-                                            <span>x</span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="rows">
-                                        <div class="data-rows"><span>Rizka Layla Ramadhani</span></div>
-                                        <div class="garis"></div>
-                                        <div class="data-rows">
-                                            <span>x</span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="rows">
-                                        <div class="data-rows"><span>Rizka Layla Ramadhani</span></div>
-                                        <div class="garis"></div>
-                                        <div class="data-rows">
-                                            <span>x</span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="rows">
-                                        <div class="data-rows"><span>Rizka Layla Ramadhani</span></div>
-                                        <div class="garis"></div>
-                                        <div class="data-rows">
-                                            <span>x</span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="rows">
-                                        <div class="data-rows"><span>Rizka Layla Ramadhani</span></div>
-                                        <div class="garis"></div>
-                                        <div class="data-rows">
-                                            <span>x</span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="rows">
-                                        <div class="data-rows"><span>Rizka Layla Ramadhani</span></div>
-                                        <div class="garis"></div>
-                                        <div class="data-rows">
-                                            <span>x</span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="rows">
-                                        <div class="data-rows"><span>Rizka Layla Ramadhani</span></div>
-                                        <div class="garis"></div>
-                                        <div class="data-rows">
-                                            <span>x</span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="rows">
-                                        <div class="data-rows"><span>Rizka Layla Ramadhani</span></div>
-                                        <div class="garis"></div>
-                                        <div class="data-rows">
-                                            <span>x</span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                            <div class="garis"></div>
-
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div> -->
             </div>
+
+            <a href="" class="btn-input-soal">
+                <img src="../../assets/button/btn-create-room.png" alt="">
+            </a>
         </div>
     </div>
 
@@ -489,6 +188,42 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
 
                 const li = option.closest("li");
                 li.classList.add("selected-answer");
+            }
+        });
+
+        const items = document.querySelectorAll(".scroll-soal");
+
+        items.forEach((item) => {
+            const aksi = item.querySelector(".aksi");
+            let timer;
+            const showAksi = (e) => {
+                console.log("mousedown");
+                timer = setTimeout(() => {
+                    document.querySelectorAll(".aksi").forEach(a => a.style.transform = "translateX(550px)");
+                    aksi.style.transform = "translateX(0)";
+                    aksi.style.display = "block";
+                }, 600)
+            };
+
+            const cancel = () => clearTimeout(timer);
+
+            // Desktop
+            item.addEventListener("mousedown", showAksi);
+            item.addEventListener("mouseup", cancel);
+            item.addEventListener("mouseleave", cancel);
+
+            // Mobile
+            item.addEventListener("touchstart", showAksi);
+            item.addEventListener("touchend", cancel);
+            item.addEventListener("touchcancel", cancel);
+        });
+
+        document.addEventListener("click", function(e) {
+            if (!e.target.closest(".scroll-soal")) {
+                document.querySelectorAll(".aksi").forEach(div => {
+                    div.style.transform = "translateX(550px)"
+                    div.style.display = "none";
+                });
             }
         });
     </script>

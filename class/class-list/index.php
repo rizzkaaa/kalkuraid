@@ -54,14 +54,9 @@ $dataMhs = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa WH
             ?>
                     <div class="btn-class">
                         <img src="<?= $src ?>" alt="">
-                        <a href="../../class/classroom/?id_room=<?= $rowClass['id_room'] ?>">
+                        <a href="../report-game/?id_detail_room=<?= $rowClass['id_detail_room'] ?>">
                             <span><?= $rowClass['nama_room'] ?></span>
                         </a>
-                        <div class="aksi">
-                            <div class="papan-aksi">
-                                <a href="../../controller/action/hapus-kelas.php?id_room=<?= $rowClass['id_room'] ?>"><i class="fa-solid fa-trash"></i></a>
-                            </div>
-                        </div>
                     </div>
                 <?php $index++;
                 }
@@ -87,39 +82,7 @@ $dataMhs = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa WH
             }
         })
 
-        const items = document.querySelectorAll(".btn-class");
-
-        items.forEach((item) => {
-            const aksi = item.querySelector(".aksi");
-            let timer;
-            const showAksi = (e) => {
-                console.log("mousedown");
-                timer = setTimeout(() => {
-                    console.log("jalan");
-
-                    document.querySelectorAll(".aksi").forEach(a => a.style.transform = "translateX(550px)");
-                    aksi.style.transform = "translateX(0)";
-                }, 600)
-            };
-
-            const cancel = () => clearTimeout(timer);
-
-            // Desktop
-            item.addEventListener("mousedown", showAksi);
-            item.addEventListener("mouseup", cancel);
-            item.addEventListener("mouseleave", cancel);
-
-            // Mobile
-            item.addEventListener("touchstart", showAksi);
-            item.addEventListener("touchend", cancel);
-            item.addEventListener("touchcancel", cancel);
-        });
-
-        document.addEventListener("click", function(e) {
-            if (!e.target.closest(".btn-class")) {
-                document.querySelectorAll(".aksi").forEach(div => div.style.transform = "translateX(550px)");
-            }
-        });
+       
     </script>
 </body>
 

@@ -49,6 +49,7 @@ header {
 
 .disabled{
   filter: grayscale(100%);
+  pointer-events: none;
 }
 .wrap-level .level {
   width: 80px;

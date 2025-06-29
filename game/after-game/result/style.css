@@ -1,0 +1,68 @@
+body {
+  background-image: url(../../../assets/background/bg-result.gif);
+}
+.container {
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+.nama-user {
+  background-image: url(../../../assets/board/papan-nama.png);
+  width: 250px;
+  height: 100px;
+  background-size: contain;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 20px;
+  color: #f5d38e;
+  font-size: 20px;
+}
+.nama-user p {
+  width: 72%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wrap-result {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrap-result p {
+  font-size: 20px;
+}
+.wrap-result img {
+  width: 100px;
+  margin-top: 20px;
+}
+
+.wrap-result div {
+  margin-top: 10px;
+  display: flex;
+  gap: 100px;
+  margin-left: 40px;
+}
+.wrap-result span {
+  font-size: 40px;
+}
+
+a{
+    background: transparent;
+    border: none;
+    position: absolute;
+    transform: translate(135px, 5px);
+}
+a img{
+    width: 50px !important;
+}

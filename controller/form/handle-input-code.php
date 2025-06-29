@@ -18,6 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit();
         }
 
+        $jumlah = mysqli_fetch_assoc($cekRoom)['jumlah_peserta'];
+        $cekJumlah = mysqli_query($connect, "SELECT * FROM detail_room WHERE id_room='$id_room'");
+        if (mysqli_num_rows($cekJumlah) >= $jumlah) {
+            header('Location: ../../class/input-kode/?id_mhs='.$id_mhs.'&&pesan=room-penuh');
+            exit();
+        }
+
         $id_detail_room = generateID();
 
         $insertDetailRoom = mysqli_query($connect, "INSERT INTO detail_room (id_detail_room, id_room, id_mhs) VALUES ('$id_detail_room', '$id_room', '$id_mhs')");
