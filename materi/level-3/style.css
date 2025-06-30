@@ -1,0 +1,107 @@
+body {
+  background-image: url(../../assets/background/bg-dashboard.png);
+}
+.container {
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.nama-user {
+  background-image: url(../../assets/board/papan-nama.png);
+  width: 250px;
+  height: 100px;
+  background-size: contain;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 20px;
+  color: #f5d38e;
+  font-size: 20px;
+}
+.nama-user p {
+  width: 72%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wrap-materi {
+  padding-inline: 30px;
+  overflow-y: auto;
+}
+.pengertian {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pengertian h3 {
+  transform: translateY(32px);
+  border-radius: 20px;
+  padding: 10px;
+  width: 70%;
+  text-align: center;
+}
+.wrap-pengertian {
+  border-radius: 40px;
+  padding: 35px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wrap-pengertian p,
+.pengertian:last-child p {
+  font-size: 15px;
+  font-family: "Open Sans";
+  text-align: justify;
+}
+.wrap-pengertian ul {
+  padding-inline: 20px;
+}
+
+.pengertian:first-child h3 {
+  border: 5px solid #934600;
+  background: radial-gradient(circle at 50% 50%, #fdd080, #a66830);
+}
+.pengertian:first-child .wrap-pengertian {
+  gap: 20px;
+  border: 5px solid #934600;
+  background-color: #f6d48fa1;
+}
+.pengertian:first-child .wrap-pengertian img {
+  width: 100px;
+}
+
+.pengertian:nth-child(2) h3,
+.pengertian:nth-child(3) h3 {
+  border: 5px solid #497200;
+  background: radial-gradient(circle at 50% 50%, #eecd4d, #8dab55);
+}
+.pengertian:nth-child(2) .wrap-pengertian,
+.pengertian:nth-child(3) .wrap-pengertian {
+  border: 5px solid #497200;
+  background-color: #e6ffb29c;
+}
+.pengertian:nth-child(2) .wrap-pengertian img,
+.pengertian:nth-child(3) .wrap-pengertian img {
+  width: 150px;
+}
+
+.pengertian:last-child {
+  border: 5px dashed #934600;
+  border-radius: 40px;
+  margin-block: 20px;
+  padding: 20px;
+  background-color: #f6d48fa1;
+}
+
+  .pengertian:last-child iframe{
+    margin-bottom: 15px;
+    width: 95%;
+  }

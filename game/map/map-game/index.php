@@ -38,13 +38,15 @@ $id_room = $dataClass['id_room'];
                 <?php
                 $dataLevel = mysqli_query($connect, "SELECT * FROM detail_level WHERE id_room='$id_room' ORDER BY id_level ASC");
                 $no = 1;
-                $prev_skor_ada = true; 
+                $prev_skor_ada = true;
 
                 while ($rowLevel = mysqli_fetch_assoc($dataLevel)) {
                     $id_detail_level = $rowLevel['id_detail_level'];
                     $dataSkor = mysqli_query($connect, "SELECT * FROM skor_level WHERE id_detail_level='$id_detail_level' AND id_detail_room='$id_detail_room'");
+                    $rowSkor = mysqli_fetch_assoc($dataSkor);
                     $skor_ada = mysqli_num_rows($dataSkor) > 0;
 
+                    $level_sudah_dikerjakan = isset($rowSkor['skor_mhs']) && $rowSkor['skor_mhs'] != 0;
                     $is_disabled = !$prev_skor_ada;
 
                 ?>
@@ -52,7 +54,8 @@ $id_room = $dataClass['id_room'];
 
                     <img
                         class="level <?= $is_disabled ? 'disabled' : '' ?>"
-                        data-id="<?= $rowLevel['id_detail_level'] ?>"
+                        data-id="<?=$rowLevel['id_detail_level']?>"
+                        next-step="<?=$level_sudah_dikerjakan?>"
                         src="../../../assets/component/level-<?= $rowLevel['id_level'] ?>.png">
 
                     <div class="lock <?= $is_disabled ? '' : 'hidden' ?>">
@@ -73,14 +76,19 @@ $id_room = $dataClass['id_room'];
         const levels = document.querySelectorAll('.level');
         levels.forEach(level => {
             level.addEventListener('click', () => {
-                console.log(level);
+                const nextStep = level.getAttribute('next-step');
+                console.log(nextStep);
                 const id_detail_level = level.getAttribute('data-id');
                 const id_detail_room = document.getElementById('id_detail_room').value;
 
                 const currentTransform = getComputedStyle(level).transform;
                 level.style.transform = currentTransform + 'scale(1.3)';
                 setTimeout(() => {
-                    window.location.href = `../../play/?id_detail_level=${id_detail_level}&&id_detail_room=${id_detail_room}`;
+                    if (nextStep == 1) {
+                        window.location.href = `../../after-game/check/?id_detail_level=${id_detail_level}&&id_detail_room=${id_detail_room}`;
+                    } else {
+                        window.location.href = `../../play/?id_detail_level=${id_detail_level}&&id_detail_room=${id_detail_room}`;
+                    }
                 }, 500)
             })
         })
@@ -88,8 +96,6 @@ $id_room = $dataClass['id_room'];
         const locks = document.querySelectorAll('.lock');
         locks.forEach(lock => {
             lock.addEventListener('click', () => {
-                console.log(lock);
-
                 const img = lock.querySelector('img');
                 img.classList.remove('lock-animation');
                 void img.offsetWidth;

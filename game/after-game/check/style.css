@@ -1,5 +1,5 @@
 body {
-  background-image: url(../../assets/background/bg-dashboard.png);
+  background-image: url(../../../assets/background/bg-dashboard.png);
 }
 .container {
   flex-direction: column;
@@ -14,7 +14,7 @@ header {
   width: 100%;
 }
 .nama-user {
-  background-image: url(../../assets/board/papan-nama.png);
+  background-image: url(../../../assets/board/papan-nama.png);
   width: 250px;
   height: 100px;
   background-size: contain;
@@ -45,7 +45,7 @@ header {
   width: 300px;
   height: 200px;
   background-size: contain;
-  background-image: url(../../assets/board/papan-judul-soal.png);
+  background-image: url(../../../assets/board/papan-judul-soal.png);
 }
 .papan-judul p {
   font-size: 17px;
@@ -56,7 +56,9 @@ header {
   text-align: center;
 }
 /* ------------------------------------------------------------------------------------- */
-
+.hidden{
+  display: none;
+}
 .daftar-soal {
   transform: translate(0, -40px);
   width: 330px;
@@ -119,11 +121,15 @@ header {
   align-items: center;
   width: 100%;
 }
-.wrap-opsi li label p span {
+.wrap-opsi li label p .correct {
   display: none;
   font-size: 30px;
   padding-left: 8px;
   padding-bottom: 3px;
+}
+.wrap-opsi li label p .incorrect {
+  display: none;
+  font-size: 25px;
 }
 .wrap-opsi li label p {
   width: 20px;

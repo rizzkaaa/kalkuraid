@@ -1,5 +1,5 @@
 <?php
-include '../../db.php';
+include '../../../db.php';
 if (!isset($_GET["id_detail_level"]) && empty($_GET["id_detail_level"]) && !isset($_GET["id_detail_room"]) && empty($_GET["id_detail_room"])) {
     die("Error: ID tidak ditemukan.");
 }
@@ -8,6 +8,7 @@ $id_detail_room = $_GET["id_detail_room"];
 $id_detail_level = $_GET["id_detail_level"];
 $dataLevel = mysqli_fetch_assoc(mysqli_query($connect, "SELECT a.id_room, a.jumlah_soal, b.* FROM detail_level a INNER JOIN level b ON a.id_level=b.id_level WHERE a.id_detail_level='$id_detail_level'"));
 
+// var_dump($id_detail_room, $id_detail_level);
 $id_room = $dataLevel['id_room'];
 $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom WHERE id_room='$id_room'"));
 ?>
@@ -20,7 +21,7 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Play</title>
     <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="../../global-style.css" />
+    <link rel="stylesheet" href="../../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap" rel="stylesheet">
@@ -28,13 +29,9 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
 </head>
 
 <body>
-    <form method="POST" action="../../controller/form/handle-input-game.php" class="container">
-        <input type="hidden" value="<?= $id_detail_room ?>" name="id_detail_room">
-        <input type="hidden" value="<?= $id_detail_level ?>" name="id_detail_level">
-        <input type="hidden" value="<?= $dataLevel['jumlah_soal'] ?>" name="jumlah_soal">
-
+    <div class="container">
         <header>
-            <button class="btn-undo" type="submit" onclick="return confirm('Anda yakin ingin menghentikan permainan? Anda tidak dapat kembali lagi.')"><img src="../../assets/button/btn-submit.png" alt=""></button>
+            <a href="../../map/map-game/?id_detail_room=<?= $id_detail_room ?>" class="btn-undo"><img src="../../../assets/button/btn-undo.png" alt=""></a>
 
             <div class="nama-user">
                 <p><?= $dataClass['nama_room'] ?></p>
@@ -61,7 +58,7 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
                                     </div>
                                     <div class="soal">
                                         <?php if (isset($rowSoal['soal_img'])) { ?>
-                                            <img src="../../assets/soal/<?= $rowSoal['soal_img'] ?>" alt="">
+                                            <img src="../../../assets/soal/<?= $rowSoal['soal_img'] ?>" alt="">
                                         <?php } ?>
                                         <?php if (isset($rowSoal['soal'])) { ?>
                                             <p><?= $rowSoal['soal'] ?></p>
@@ -69,7 +66,10 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
                                     </div>
                                 </div>
                                 <ul class="wrap-opsi">
-                                    <?php $arrayLi = [
+                                    <?php
+                                    $id_detail_soal = $rowSoal['id_detail_soal'];
+                                    $dataJawaban = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM jawaban_mhs WHERE id_detail_soal='$id_detail_soal' AND id_detail_room='$id_detail_room'"));
+                                    $arrayLi = [
                                         ['label' => 'opsi_1', 'isi' => $rowSoal['opsi_1']],
                                         ['label' => 'opsi_2', 'isi' => $rowSoal['opsi_2']],
                                         ['label' => 'opsi_3', 'isi' => $rowSoal['opsi_3']],
@@ -78,18 +78,30 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
                                     shuffle($arrayLi);
 
                                     foreach ($arrayLi as $i => $opsi):
+                                        $answer = $rowSoal['jawaban'] == $opsi['label'];
+                                        $selected = $dataJawaban['jawaban'] == $opsi['label'];
                                     ?>
-                                        <li><label for="soal<?= $no . '-' . $opsi['label'] ?>">
-                                                <p><span>&#10004;</span></p><input type="radio" value="<?= $opsi['label'] ?>" name="jawaban<?= $no ?>" class="opsi" id="soal<?= $no . '-' . $opsi['label'] ?>" required><span><?= $opsi['isi'] ?></span>
+                                        <li class="<?= $selected || $answer ? 'selected-answer' : '' ?>"><label for="soal<?= $no . '-' . $opsi['label'] ?>">
+                                                <p>
+                                                    <?php if ($opsi['label'] == $rowSoal['jawaban']) { ?>
+                                                        <span class="correct">&#10004;</span>
+
+                                                    <?php
+                                                    } else { ?>
+                                                         <span class="incorrect">&#10006;</span>
+
+                                                    <?php } ?>
+                                                </p>
+                                                <span></span>
+                                                <span><?= $opsi['isi'] ?></span>
                                             </label></li>
                                     <?php endforeach; ?>
 
                                 </ul>
                                 <div class="wrap-jawaban">
-                                    <label>Selamat Mengerjakan</label>
+                                    <label><?= $dataJawaban['jawaban'] == $rowSoal['jawaban'] ? 'Bagus Sekali!' : 'Sayang Sekali!' ?></label>
                                 </div>
 
-                                <input type="hidden" value="<?= $rowSoal['id_detail_soal'] ?>" name="id_detail_soal<?=$no?>">
                             </div>
                         </div>
                     </div>
@@ -97,29 +109,7 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
                 ?>
             </div>
         </div>
-    </form>
-
-    <script>
-        const options = document.querySelectorAll(".opsi");
-
-        options.forEach(option => {
-            option.addEventListener("change", () => {
-                if (option.checked) {
-                    console.log(true);
-
-                    const wrapOpsi = option.closest(".wrap-opsi");
-
-                    wrapOpsi.querySelectorAll("li").forEach(li => {
-                        li.classList.remove("selected-answer");
-                    });
-
-                    const li = option.closest("li");
-                    li.classList.add("selected-answer");
-                }
-            });
-        });
-    </script>
-
+    </div>
 </body>
 
 </html>

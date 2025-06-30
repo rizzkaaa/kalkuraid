@@ -1,0 +1,49 @@
+body {
+  background-image: url(../assets/background/bg-dashboard.png);
+}
+.container {
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.nama-user {
+  background-image: url(../assets/board/papan-nama.png);
+  width: 250px;
+  height: 100px;
+  background-size: contain;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 20px;
+  color: #f5d38e;
+  font-size: 20px;
+}
+.nama-user p {
+  width: 72%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-level {
+  background-image: url(../assets/board/papan-materi.png);
+  width: 360px;
+  height: 700px;
+  background-size: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 55px;
+  gap: 23px;
+}
+.list-level a {
+  width: 250px;
+  height: 50px;
+}
