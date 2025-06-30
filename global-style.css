@@ -41,3 +41,26 @@ body {
   background: transparent;
   border: none;
 }
+
+header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.nama-user {
+  width: 250px;
+  height: 100px;
+  background-size: contain;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 20px;
+  color: #e7a84e;
+  font-size: 20px;
+}
+.nama-user p {
+  width: 72%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

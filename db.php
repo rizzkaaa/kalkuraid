@@ -10,7 +10,7 @@ error_reporting(E_ALL);
 // $host = '13.210.158.221';
 // $port = 3306;
 // $user = 'admin';
-// $password = 'passwordku';
+// $password = 'admin123';
 // $database = 'kalkuraid';
 
 $host = 'localhost';
