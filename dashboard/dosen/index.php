@@ -17,7 +17,7 @@ $id_dosen = $dataUser['id_dosen'];
     <link rel="stylesheet" href="../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 
 </head>
@@ -25,7 +25,7 @@ $id_dosen = $dataUser['id_dosen'];
 <body>
     <div class="container">
         <header>
-            <a href="../../logout.php" onclick="return confirm('Anda yakin ingin keluar?')" class="btn-undo"><img src="../../assets/button/btn-logout.png" alt=""></a>
+            <a href="../../logout.php" onclick="return confirm('Anda yakin ingin keluar?')" class="btn-undo"><img src="../../assets/button/btn-logout.png"></a>
 
             <div class="nama-user">
                 <p><?= $dataUser['nama_dosen'] ?></p>
@@ -33,7 +33,7 @@ $id_dosen = $dataUser['id_dosen'];
         </header>
 
         <div class="btn-create">
-            <img src="../../assets/button/btn-create.png" alt="">
+            <img src="../../assets/button/btn-create.png">
             <a href="../../class/create-class/">
                 <span>BUAT KELAS</span>
             </a>
@@ -50,7 +50,7 @@ $id_dosen = $dataUser['id_dosen'];
                         : "../../assets/button/btn-list-class.png";
             ?>
                     <div class="btn-class">
-                        <img src="<?= $src ?>" alt="">
+                        <img src="<?= $src ?>">
                         <a href="../../class/classroom/?id_room=<?= $rowClass['id_room'] ?>">
                             <span><?= $rowClass['nama_room'] ?></span>
                         </a>
@@ -66,7 +66,7 @@ $id_dosen = $dataUser['id_dosen'];
                 }
             } else { ?>
                 <div class="btn-class">
-                    <img src="../../assets/button/btn-uplist-class.png" alt="">
+                    <img src="../../assets/button/btn-uplist-class.png">
                     <a href="../../class/classroom/">
                         <span>Tidak ada kelas</span>
                     </a>

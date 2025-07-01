@@ -20,14 +20,14 @@ $id_room = $dataClass['id_room'];
     <link rel="stylesheet" href="../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 </head>
 
 <body>
     <div class="container">
         <header>
-            <a href="../class-list/?id_mhs=<?=$dataClass['id_mhs']?>" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
+            <a href="../class-list/?id_mhs=<?= $dataClass['id_mhs'] ?>" class="btn-undo"><img src="../../assets/button/btn-undo.png"></a>
 
             <div class="nama-user">
                 <p><?= $dataClass['nama_room'] ?></p>
@@ -35,18 +35,18 @@ $id_room = $dataClass['id_room'];
         </header>
 
         <ul class="list-nilai">
-            <?php 
+            <?php
             $dataSkor = mysqli_query($connect, "SELECT a.*, b.id_level FROM skor_level a INNER JOIN detail_level b ON a.id_detail_level=b.id_detail_level WHERE id_detail_room='$id_detail_room'");
-            while($rowSkor = mysqli_fetch_assoc($dataSkor)){
+            while ($rowSkor = mysqli_fetch_assoc($dataSkor)) {
             ?>
-            <li>
-                <span><?=$rowSkor['id_level']?></span>
-                <img src="../../assets/component/level-<?=$rowSkor['id_level']?>.png" alt="">
-                <div>
-                    <p><?=$rowSkor['total_benar']?></p>
-                    <p><?=$rowSkor['total_salah']?></p>
-                </div>
-            </li>
+                <li>
+                    <span><?= $rowSkor['id_level'] ?></span>
+                    <img src="../../assets/component/level-<?= $rowSkor['id_level'] ?>.png">
+                    <div>
+                        <p><?= $rowSkor['total_benar'] ?></p>
+                        <p><?= $rowSkor['total_salah'] ?></p>
+                    </div>
+                </li>
             <?php } ?>
         </ul>
     </div>

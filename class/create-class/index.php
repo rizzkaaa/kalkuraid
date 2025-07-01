@@ -26,14 +26,14 @@ if ($peran == "Mahasiswa") {
     <link rel="stylesheet" href="../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 </head>
 
 <body>
     <div class="container">
         <header>
-            <a href="../../dashboard/<?=strtolower($peran)?>/" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
+            <a href="../../dashboard/<?= strtolower($peran) ?>/" class="btn-undo"><img src="../../assets/button/btn-undo.png"></a>
 
             <div class="nama-user">
                 <p><?= $dataUser['nama'] ?></p>
@@ -60,19 +60,19 @@ if ($peran == "Mahasiswa") {
             </div>
 
             <ul class="select-bar hidden">
-                <?php 
+                <?php
                 $dataLevel = mysqli_query($connect, "SELECT * FROM level");
-                while($rowLevel = mysqli_fetch_assoc($dataLevel)){?>
-                <li data-value="<?=$rowLevel['id_level']?>">
-                    <img src="../../assets/component/level-<?=$rowLevel['id_level']?>.png"> <span>LV: <?=$rowLevel['id_level']?> <?=$rowLevel['nama_level']?></span>
-                </li>
+                while ($rowLevel = mysqli_fetch_assoc($dataLevel)) { ?>
+                    <li data-value="<?= $rowLevel['id_level'] ?>">
+                        <img src="../../assets/component/level-<?= $rowLevel['id_level'] ?>.png"> <span>LV: <?= $rowLevel['id_level'] ?> <?= $rowLevel['nama_level'] ?></span>
+                    </li>
                 <?php }
                 ?>
             </ul>
 
             <input type="hidden" id="jumlah-level" name="jumlah-level">
-            <input type="hidden" id="id_dosen" name="<?=$peran == "Dosen" ? 'id_dosen' : ''?>" value="<?=$id_dosen?>">
-            <button><img src="../../assets/button/btn-create-room.png" alt=""></button>
+            <input type="hidden" id="id_dosen" name="<?= $peran == "Dosen" ? 'id_dosen' : '' ?>" value="<?= $id_dosen ?>">
+            <button><img src="../../assets/button/btn-create-room.png"></button>
         </form>
     </div>
 
@@ -129,10 +129,10 @@ if ($peran == "Mahasiswa") {
             inputs = document.querySelectorAll('.box-level input');
             handleClick();
 
-            if(!levels.includes('+')){
+            if (!levels.includes('+')) {
                 document.getElementById('jumlah-level').value = levels.length;
             } else {
-                document.getElementById('jumlah-level').value = levels.length-1;
+                document.getElementById('jumlah-level').value = levels.length - 1;
             }
         }
 
@@ -157,7 +157,7 @@ if ($peran == "Mahasiswa") {
                 el.value = 1;
             }
         }
-    
+
         const btnSubmit = document.querySelector('button');
         btnSubmit.addEventListener('click', (event) => {
             if (levels.length == 1) {
@@ -165,7 +165,6 @@ if ($peran == "Mahasiswa") {
                 return
             }
         })
-
     </script>
 </body>
 

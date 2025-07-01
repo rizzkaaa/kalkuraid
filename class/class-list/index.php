@@ -20,7 +20,7 @@ $dataMhs = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa WH
     <link rel="stylesheet" href="../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 
 </head>
@@ -28,15 +28,15 @@ $dataMhs = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa WH
 <body>
     <div class="container">
         <header>
-            <a href="../../dashboard/mahasiswa/" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
+            <a href="../../dashboard/mahasiswa/" class="btn-undo"><img src="../../assets/button/btn-undo.png"></a>
 
             <div class="nama-user">
-                <p><?=$dataMhs['nama_mhs']?></p>
+                <p><?= $dataMhs['nama_mhs'] ?></p>
             </div>
         </header>
 
         <div class="btn-create">
-            <img src="../../assets/button/btn-create.png" alt="">
+            <img src="../../assets/button/btn-create.png">
             <a href="../../class/create-class/">
                 <span>KUSTOM ROOM</span>
             </a>
@@ -53,7 +53,7 @@ $dataMhs = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa WH
                         : "../../assets/button/btn-list-class.png";
             ?>
                     <div class="btn-class">
-                        <img src="<?= $src ?>" alt="">
+                        <img src="<?= $src ?>">
                         <a href="../report-game/?id_detail_room=<?= $rowClass['id_detail_room'] ?>">
                             <span><?= $rowClass['nama_room'] ?></span>
                         </a>
@@ -62,7 +62,7 @@ $dataMhs = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa WH
                 }
             } else { ?>
                 <div class="btn-class">
-                    <img src="../../assets/button/btn-uplist-class.png" alt="">
+                    <img src="../../assets/button/btn-uplist-class.png">
                     <a href="../../class/classroom/">
                         <span>Tidak ada kelas</span>
                     </a>
@@ -81,8 +81,6 @@ $dataMhs = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa WH
                 value -= 20;
             }
         })
-
-       
     </script>
 </body>
 

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,13 +12,14 @@
 <body>
   <div class="container">
     <div class="coconut-tree">
-      <img src="../assets/component/pohon-kiri.png" alt="">
-      <img src="../assets/component/pohon-kanan.png" alt="">
+      <img src="../assets/component/pohon-kiri.png">
+      <img src="../assets/component/pohon-kanan.png">
     </div>
     <div class="wrap">
-      <a href="./daftar/"><img src="../assets/button/btn-daftar.png" alt="" /></a>
-      <a href="./masuk/"><img src="../assets/button/btn-login.png" alt="" /></a>
+      <a href="./daftar/"><img src="../assets/button/btn-daftar.png" /></a>
+      <a href="./masuk/"><img src="../assets/button/btn-login.png" /></a>
     </div>
+    <audio id="klikSound" src="../assets/sound/sound-klik-btn.mp3" preload="auto"></audio>
   </div>
 
   <script>
@@ -30,6 +30,10 @@
         event.preventDefault();
         const ref = link.getAttribute('href');
         link.style.animation = "onclick 0.5s";
+
+        const audio = document.getElementById("klikSound");
+        audio.currentTime = 0;
+        audio.play();
 
         const trees = document.querySelectorAll(".coconut-tree img");
         trees.forEach((tree, i) => {

@@ -12,60 +12,65 @@ include '../../db.php';
   <link rel="stylesheet" href="../../global-style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
   <div class="container">
+    <div class="wrap-alert">
+    </div>
+
     <div class="coconut-tree">
-      <img src="../../assets/component/pohon-kiri.png" alt="">
-      <img src="../../assets/component/pohon-kanan.png" alt="">
+      <img src="../../assets/component/pohon-kiri.png">
+      <img src="../../assets/component/pohon-kanan.png">
     </div>
     <form action="proses-daftar.php" method="POST">
       <div class="container-wrap">
         <div class="wrap-peran">
           <input type="radio" id="peran-mhs" name="peran" value="mahasiswa">
-          <label for="peran-mhs"><img src="../../assets/button/btn-mhs.png" alt=""></label>
+          <label for="peran-mhs"><img src="../../assets/button/btn-mhs.png"></label>
           <input type="radio" id="peran-dosen" name="peran" value="dosen">
-          <label for="peran-dosen"><img src="../../assets/button/btn-dosen.png" alt=""></label>
+          <label for="peran-dosen"><img src="../../assets/button/btn-dosen.png"></label>
         </div>
-        <div class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></div>
+        <div class="btn-undo"><img src="../../assets/button/btn-undo.png"></div>
 
       </div>
 
       <div class="wrap-input-data" id="mahasiswa">
-        <div class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></div>
+        <div class="btn-undo"><img src="../../assets/button/btn-undo.png"></div>
         <div class="input-data">
-          <input type="text" name="nama_mhs" id="nama_mhs">
-          <input type="text" name="npm" id="npm">
-          <input type="text" name="univ_mhs" id="univ_mhs">
-          <div class="btn"><img src="../../assets/button/btn-lanjut.png" alt=""></div>
+          <input type="text" autocomplete="off" name="nama_mhs" id="nama_mhs">
+          <input type="text" autocomplete="off" name="npm" id="npm">
+          <input type="text" autocomplete="off" name="univ_mhs" id="univ_mhs">
+          <div class="btn"><img src="../../assets/button/btn-lanjut.png"></div>
         </div>
       </div>
 
       <div class="wrap-input-data" id="dosen">
-        <div class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></div>
+        <div class="btn-undo"><img src="../../assets/button/btn-undo.png"></div>
         <div class="input-data">
-          <input type="text" name="nama_dosen" id="nama_dosen">
-          <input type="text" name="nip" id="nip">
-          <input type="text" name="univ_dosen" id="univ_dosen">
-          <div class="btn"><img src="../../assets/button/btn-lanjut.png" alt=""></div>
+          <input type="text" autocomplete="off" name="nama_dosen" id="nama_dosen">
+          <input type="text" autocomplete="off" name="nip" id="nip">
+          <input type="text" autocomplete="off" name="univ_dosen" id="univ_dosen">
+          <div class="btn"><img src="../../assets/button/btn-lanjut.png"></div>
         </div>
       </div>
 
       <div class="wrap-input-data" id="pw">
-        <div class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></div>
+        <div class="btn-undo"><img src="../../assets/button/btn-undo.png"></div>
         <div class="input-data">
-          <input type="text" name="username" id="username" readonly>
-          <input type="text" name="password" id="password">
-          <div class="btn"><img src="../../assets/button/btn-simpan.png" alt=""></div>
+          <input type="text" autocomplete="off" name="username" id="username" readonly>
+          <input type="text" autocomplete="off" name="password" id="password">
+          <div class="btn"><img src="../../assets/button/btn-simpan.png"></div>
         </div>
       </div>
     </form>
+    <audio id="klikSoundUnik" src="../assets/sound/sound-klik-btn.mp3" preload="auto"></audio>
+
   </div>
 
+
+  <script src="../../script.js"></script>
 
   <script>
     const labels = document.querySelectorAll(".wrap-peran label");
@@ -116,7 +121,7 @@ include '../../db.php';
           const univMhs = document.getElementById("univ_mhs").value;
 
           if (namaMhs == "" || npm == '' || univMhs == "") {
-            console.log("Mahasiswa fail");
+            showAlert('Lengkapi Data Anda', '../../');
             return;
           }
 
@@ -128,7 +133,7 @@ include '../../db.php';
           const univDosen = document.getElementById("univ_dosen").value;
 
           if (namaDosen == "" || nip == '' || univDosen == "") {
-            console.log("Dosen fail");
+            showAlert('Lengkapi Data Anda', '../../');
             return;
           }
           console.log("Dosen done");
@@ -138,7 +143,7 @@ include '../../db.php';
           const password = document.getElementById("password").value;
 
           if (username == "" || password == '') {
-            console.log("Password fail");
+            showAlert('Lengkapi Password Anda', '../../');
             return;
           }
           console.log("Password done");
@@ -187,8 +192,6 @@ include '../../db.php';
             pw.style.display = 'none';
           }, 1000);
 
-          console.log(i);
-
         } else {
           document.getElementById("nama_mhs").value = "";
           document.getElementById("npm").value = "";
@@ -210,8 +213,6 @@ include '../../db.php';
             mhs.style.display = 'none';
             dosen.style.display = 'none';
           }, 1000);
-          console.log(i);
-
         }
       })
     })
@@ -244,6 +245,7 @@ include '../../db.php';
       return array;
     }
   </script>
+
 </body>
 
 </html>

@@ -64,3 +64,59 @@ header {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.alert {
+  background-size: 100%;
+  background-image: url(./assets/board/papan-aksi.png);
+  width: 360px;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: slideIn 1s forwards;
+}
+@keyframes slideIn {
+  from{
+    transform: translateY(-500px);
+  } to{
+    transform: translate(0);
+  }
+}
+@keyframes slideOut {
+  from{
+    transform: translate(0);
+  } to{
+    transform: translateY(-500px);
+  }
+}
+
+.alert p {
+  width: 220px;
+  text-align: center;
+  color: white;
+  -webkit-text-stroke: 0.2px #734300;
+}
+.wrap-alert {
+  position: absolute;
+  z-index: 2;
+  transition: all 1s;
+  transform: scale(0);
+  width: 100%;
+  height: 100%;
+  background-color: #0000007d;
+  backdrop-filter: blur(5px);
+  opacity: 0;
+}
+.wrap-alert button {
+  background: transparent;
+  border: none;
+  position: absolute;
+  right: 60px;
+  bottom: -20px;
+}
+.wrap-alert button img {
+  width: 65px;
+}
+audio{
+  display: none;
+}

@@ -19,15 +19,14 @@ if ($full) {
     $total_skor = 0;
 
     while ($skorMhs = mysqli_fetch_assoc($dataSkor)) {
-        $total_skor+=$skorMhs['skor_mhs'];
+        $total_skor += $skorMhs['skor_mhs'];
     }
-    $total_skor= $total_skor / $jumlahLevel['jumlah_level'];
-    
+    $total_skor = $total_skor / $jumlahLevel['jumlah_level'];
+
     $cekSkor = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM detail_room WHERE id_detail_room='$id_detail_room'"))['total_skor'];
-    if($cekSkor == 0){
+    if ($cekSkor == 0) {
         mysqli_query($connect, "UPDATE detail_room SET total_skor=$total_skor WHERE id_detail_room='$id_detail_room'");
     }
-
 }
 $nextStep = $full ? "../../../class/report-game/?id_detail_room=$id_detail_room" : "../../map/map-game/?id_detail_room=$id_detail_room";
 ?>
@@ -42,7 +41,7 @@ $nextStep = $full ? "../../../class/report-game/?id_detail_room=$id_detail_room"
     <link rel="stylesheet" href="../../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 </head>
 
@@ -55,9 +54,9 @@ $nextStep = $full ? "../../../class/report-game/?id_detail_room=$id_detail_room"
         </header>
 
         <div class="wrap-result">
-            <a href="<?= $nextStep ?>"><img src="../../../assets/button/btn-x.png" alt=""></a>
+            <a href="<?= $nextStep ?>"><img src="../../../assets/button/btn-x.png"></a>
             <p>LV <?= $dataLevel['id_level'] ?></p>
-            <img src="../../../assets/component/level-<?= $dataLevel['id_level'] ?>.png" alt="">
+            <img src="../../../assets/component/level-<?= $dataLevel['id_level'] ?>.png">
             <div>
                 <span><?= $dataLevel['total_benar'] ?></span>
                 <span><?= $dataLevel['total_salah'] ?></span>

@@ -7,15 +7,12 @@ body {
   align-items: center;
 }
 
-
 form {
   transform: translateY(-200px);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 350px;
-  /* transform: translateY(-1200px); */
-  /* transform: translateY(-2200px); */
   transition: all 1s;
 }
 .container-wrap {
@@ -35,7 +32,7 @@ form {
   background-size: contain;
   overflow: hidden;
 }
-.container-wrap .btn-undo{
+.container-wrap .btn-undo {
   transform: translateY(-100px);
 }
 .wrap-peran input {
@@ -89,7 +86,7 @@ form {
   background-position: center;
   background-size: contain;
 }
-.wrap-input-data .btn-undo{
+.wrap-input-data .btn-undo {
   transform: translateY(-30px);
 }
 .input-data {
@@ -106,8 +103,7 @@ form {
   background-color: #a6672c;
   border: 7px solid #f5ca95;
   box-shadow: inset 5px 5px 5px #684524;
-  color: #f5d38e;
-  text-shadow: 1px 0 #f5d38e, -1px 0 #f5d38e, 0 1px #f5d38e, 0 -1px #f5d38e;
+  color: #f6d48f;
 }
 .wrap-input-data input:focus {
   outline: none;

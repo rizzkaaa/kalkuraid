@@ -17,7 +17,7 @@ $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa W
     <link rel="stylesheet" href="../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 
 </head>
@@ -25,7 +25,7 @@ $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa W
 <body>
     <div class="container">
         <header>
-            <a href="../" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
+            <a href="../" class="btn-undo"><img src="../../assets/button/btn-undo.png"></a>
 
             <div class="nama-user">
                 <p><?= $dataUser['nama_mhs'] ?></p>
@@ -37,7 +37,7 @@ $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa W
                 <h3>Pengertian</h3>
                 <div class="wrap-pengertian">
                     <p>Fungsi rasional adalah fungsi yang merupakan hasil bagi dua fungsi polinomial.</p>
-                    <img src="../../assets/materi/level-1/1.png" alt="">
+                    <img src="../../assets/materi/level-1/1.png">
                     <p>Apabila pangkat dari pembilang lebih besar atau
                         sama dengan pangkat dari penyebut, maka diperoleh fungsi
                         rasional tak sejati, dan jika pangkat dari penyebut lebih besar dari
@@ -49,7 +49,7 @@ $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa W
                 <h3>Fungsi Rasional Tak Sejati</h3>
                 <div class="wrap-pengertian">
                     <p>Jika pangkat pembilang >= penyebut, lakukan pembagian polinomial menjadi bentuk polinomial dan rasional sejati.</p>
-                    <img src="../../assets/materi/level-1/2.png" alt="">
+                    <img src="../../assets/materi/level-1/2.png">
                     <ul>
                         <li>
                             <p>S(x): hasil bagi (polinomial biasa)</p>
@@ -69,15 +69,15 @@ $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa W
                     <ul>
                         <li>
                             <p>g(x) = (ax + b)(cx + d) => Bentuk Linier Tak Berulang</p>
-                            <img src="../../assets/materi/level-1/3.png" alt="">
+                            <img src="../../assets/materi/level-1/3.png">
                         </li>
                         <li>
                             <p>g(x) = (ax + b) => Bentuk Linier Berulang</p>
-                            <img src="../../assets/materi/level-1/4.png" alt="">
+                            <img src="../../assets/materi/level-1/4.png">
                         </li>
                         <li>
                             <p>g(x) = (ax + b)(px + qx + r) => Perkalian Bentuk Linier dan Bentuk Kuadrat</p>
-                            <img src="../../assets/materi/level-1/5.png" alt="">
+                            <img src="../../assets/materi/level-1/5.png">
                         </li>
                     </ul>
 

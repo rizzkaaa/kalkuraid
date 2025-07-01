@@ -23,7 +23,7 @@ $dataLevel = mysqli_fetch_assoc(mysqli_query($connect, "SELECT a.*, b.nama_level
     <link rel="stylesheet" href="../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 </head>
 
@@ -39,8 +39,8 @@ $dataLevel = mysqli_fetch_assoc(mysqli_query($connect, "SELECT a.*, b.nama_level
             <h2>LV <?= $dataLevel['id_level'] . " - " . $dataLevel['nama_level'] ?></h2>
         </div>
         <form method="POST" enctype="multipart/form-data" action="../../controller/form/handle-input-soal.php" class="card-soal soal-green">
-        <input type="hidden" name="id_detail_level" value="<?=$id_detail_level?>">    
-        <div class="wrap-soal">
+            <input type="hidden" name="id_detail_level" value="<?= $id_detail_level ?>">
+            <div class="wrap-soal">
                 <div class="no-soal">
                     <p>Soal</p>
                 </div>

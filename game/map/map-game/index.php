@@ -20,7 +20,7 @@ $id_room = $dataClass['id_room'];
     <link rel="stylesheet" href="../../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 </head>
 
@@ -54,12 +54,12 @@ $id_room = $dataClass['id_room'];
 
                     <img
                         class="level <?= $is_disabled ? 'disabled' : '' ?>"
-                        data-id="<?=$rowLevel['id_detail_level']?>"
-                        next-step="<?=$level_sudah_dikerjakan?>"
+                        data-id="<?= $rowLevel['id_detail_level'] ?>"
+                        next-step="<?= $level_sudah_dikerjakan ?>"
                         src="../../../assets/component/level-<?= $rowLevel['id_level'] ?>.png">
 
                     <div class="lock <?= $is_disabled ? '' : 'hidden' ?>">
-                        <img class="lock-animation" src="../../../assets/component/gembok.png" alt="">
+                        <img class="lock-animation" src="../../../assets/component/gembok.png">
                     </div>
 
                 <?php

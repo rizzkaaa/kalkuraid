@@ -19,14 +19,14 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
     <link rel="stylesheet" href="../../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 </head>
 
 <body>
     <div class="container">
         <header>
-            <a href="../../../class/classroom/?id_room=<?= $id_room ?>" class="btn-undo"><img src="../../../assets/button/btn-undo.png" alt=""></a>
+            <a href="../../../class/classroom/?id_room=<?= $id_room ?>" class="btn-undo"><img src="../../../assets/button/btn-undo.png"></a>
 
             <div class="nama-user">
                 <p><?= $dataClass['nama_room'] ?></p>
@@ -39,8 +39,8 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
                 $dataLevel = mysqli_query($connect, "SELECT * FROM detail_level WHERE id_room='$id_room' ORDER BY id_level ASC");
                 $no = 1;
                 while ($rowLevel = mysqli_fetch_assoc($dataLevel)) { ?>
-                    <img class="road" src="../../../assets/component/to-<?=$no?>.png">
-                    <img class="level" data-id="<?=$rowLevel['id_detail_level']?>" src="../../../assets/component/level-<?=$rowLevel['id_level']?>.png">
+                    <img class="road" src="../../../assets/component/to-<?= $no ?>.png">
+                    <img class="level" data-id="<?= $rowLevel['id_detail_level'] ?>" src="../../../assets/component/level-<?= $rowLevel['id_level'] ?>.png">
                 <?php $no++;
                 }
                 ?>
