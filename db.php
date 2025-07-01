@@ -7,17 +7,17 @@ error_reporting(E_ALL);
 // $password = 'lMfBLtmabZTbZlagmVTgQqLQWKtJoYho';
 // $database = 'railway';
 
-// $host = '13.210.158.221';
-// $port = 3306;
-// $user = 'admin';
-// $password = 'admin123';
-// $database = 'kalkuraid';
+$host = '13.210.158.221';
+$port = 3306;
+$user = 'admin';
+$password = 'admin123';
+$database = 'kalkuraid';
 
-$host = 'localhost';
-// $port = 3306;
-$user = 'root';
-$password = '';
-$database = 'db_kalkuraid';
+// $host = 'localhost';
+// // $port = 3306;
+// $user = 'root';
+// $password = '';
+// $database = 'db_kalkuraid';
 
 $connect = mysqli_connect($host, $user, $password, $database);
 

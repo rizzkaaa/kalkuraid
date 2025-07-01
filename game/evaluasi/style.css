@@ -57,11 +57,11 @@ header {
   scroll-snap-align: start;
   position: relative;
 }
-.scroll-soal{
+.scroll-soal {
   scroll-snap-type: y mandatory;
   height: 400px;
   overflow-y: auto;
-  overflow-x: hidden
+  overflow-x: hidden;
 }
 
 .card-soal {
@@ -407,9 +407,6 @@ header {
   background-color: #734300;
 }
 
-
-
-
 .aksi {
   position: absolute;
   z-index: 99;
@@ -432,4 +429,10 @@ header {
 .papan-aksi i {
   color: #591e04;
   font-size: 30px;
+}
+.btn-input-soal {
+  transform: translateY(-50px);
+}
+.btn-input-soal img {
+  width: 180px;
 }

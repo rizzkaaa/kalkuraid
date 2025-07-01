@@ -1,0 +1,196 @@
+body {
+  background-image: url(../../assets/background/bg-dashboard.png);
+}
+.container {
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+header {
+  justify-content: flex-end;
+}
+.nama-user {
+  background-image: url(../../assets/board/papan-nama.png);
+}
+
+.papan-judul {
+  width: 100%;
+  height: 150px;
+  background-size: cover;
+  background-image: url(../../assets/board/papan-level-input-soal.png);
+}
+.papan-judul h2 {
+  font-size: 15px;
+  width: 240px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  margin-top: 95px;
+  margin-left: 40px;
+}
+/* ------------------------------------------------------------------------------------- */
+
+.card-soal {
+  border-radius: 30px;
+  margin-bottom: 30px;
+  scroll-snap-align: start;
+  width: 330px;
+  display: flex;
+  flex-direction: column;
+}
+.wrap-soal {
+  border-radius: 30px;
+}
+.wrap-soal .no-soal p {
+  font-size: 14px;
+  width: 90px;
+  text-align: center;
+  border-radius: 20px 0 20px 0;
+}
+.wrap-soal .soal {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+}
+.soal label:nth-child(2) {
+  width: fit-content;
+}
+.soal label img {
+  width: 25px;
+}
+input[type="file"] {
+  display: none;
+}
+.soal .garis-soal {
+  width: 100%;
+  height: 2px;
+  background-color: #497200;
+  margin-block: 5px;
+}
+.soal input[type="text"] {
+  margin-top: 5px;
+  background: #8dab55;
+  border: 1px solid #497200;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: white;
+}
+.soal input[type="text"]:focus,
+.soal input[type="text"]:valid {
+  outline: none;
+  border: none;
+}
+.soal #preview-soal {
+  max-width: 290px;
+}
+.wrap-soal .soal p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: white;
+  margin-top: 10px;
+}
+.wrap-opsi li {
+  list-style: none;
+  padding: 3px;
+  margin: 10px;
+  border-radius: 20px;
+  display: flex;
+}
+.wrap-opsi li label:first-child {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.wrap-opsi li label p span {
+  display: none;
+  font-size: 30px;
+  padding-left: 8px;
+  padding-bottom: 3px;
+}
+.wrap-opsi li label p {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.wrap-opsi li span:nth-child(3) {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrap-opsi li span:nth-child(3) input {
+  text-align: center;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  background: transparent;
+  border: none;
+}
+.wrap-opsi li span:nth-child(3) input:focus {
+  outline: none;
+}
+.wrap-opsi li label:nth-child(4) {
+  display: flex;
+}
+.wrap-opsi li label:nth-child(4) img {
+  width: 20px;
+}
+.wrap-opsi li label input {
+  /* display: none; */
+}
+
+.selected-answer label p span {
+  display: block !important;
+}
+.selected-answer span:nth-child(3) {
+  font-weight: bold;
+}
+
+.soal-green {
+  background-color: #334b0966;
+}
+.soal-green .wrap-soal {
+  background-color: #497200;
+}
+.soal-green .wrap-soal .no-soal p {
+  background-color: #658923;
+}
+.soal-green .wrap-soal .soal {
+  background-color: #8dab55;
+}
+.soal-green .wrap-opsi li {
+  background-color: #8dab55;
+  border: 2px solid #436900;
+}
+.soal-green .wrap-opsi li label p span {
+  color: #a3cd4b;
+  -webkit-text-stroke: 1px #436900;
+}
+.soal-green .wrap-opsi li label p {
+  border: 2px solid #436900;
+}
+.soal-green .selected-answer {
+  background-color: #a3cd4b !important;
+}
+.soal-green .selected-answer label p {
+  background-color: #436900 !important;
+}
+.soal-green .selected-answer span:nth-child(3) {
+  color: #436900 !important;
+}
+
+button {
+  padding: 8px 10px;
+  background: linear-gradient(90deg, #8dab55, #cecd4d);
+  border: 2px solid #436900;
+  border-radius: 25px;
+  margin: 10px;
+  align-self: flex-end;
+  display: none;
+}

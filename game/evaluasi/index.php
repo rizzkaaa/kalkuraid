@@ -14,8 +14,8 @@ $jumlah_soal = $dataLevel['jumlah_soal'];
 $dataSoal = mysqli_query($connect, "SELECT a.id_detail_soal, b.* FROM detail_soal a INNER JOIN soal b ON a.id_soal=b.id_soal WHERE id_detail_level='$id_detail_level'");
 $fullSoal = true;
 
-if(mysqli_num_rows($dataSoal) != $jumlah_soal){
-    $fullSoal = false;    
+if (mysqli_num_rows($dataSoal) != $jumlah_soal) {
+    $fullSoal = false;
 }
 ?>
 
@@ -37,7 +37,7 @@ if(mysqli_num_rows($dataSoal) != $jumlah_soal){
 <body>
     <div class="container">
         <header>
-            <a href="<?= $fullSoal ? '../map/map-evaluasi/?id_room='.$id_room : ''?>" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
+            <a href="<?= $fullSoal ? '../map/map-evaluasi/?id_room=' . $id_room : '' ?>" class="btn-undo"><img src="../../assets/button/btn-undo.png" alt=""></a>
 
             <div class="nama-user">
                 <p><?= $dataClass['nama_room'] ?></p>
@@ -58,12 +58,18 @@ if(mysqli_num_rows($dataSoal) != $jumlah_soal){
                 ?>
                     <div class="swipe-soal">
                         <div class="scroll-soal">
-                            <div class="aksi">
-                                <div class="papan-aksi">
-                                    <a href=""><i class="fa-solid fa-pencil"></i></a>
-                                    <a href="../../controller/action/hapus-soal.php?id_detail_soal=<?= $rowSoal['id_detail_soal']?>&&id_detail_level=<?=$id_detail_level?>"><i class="fa-solid fa-trash"></i></a>
+                            <?php
+                            $id_detail_soal = $rowSoal['id_detail_soal'];
+                            $dataJawaban = mysqli_query($connect, "SELECT a.*, c.nama_mhs  FROM jawaban_mhs a INNER JOIN detail_room b ON a.id_detail_room=b.id_detail_room INNER JOIN mahasiswa c ON b.id_mhs=c.id_mhs WHERE id_detail_soal='$id_detail_soal'");
+                            if (mysqli_num_rows($dataJawaban) > 0) {
+                            } else {
+                            ?>
+                                <div class="aksi">
+                                    <div class="papan-aksi">
+                                        <a href="../../controller/action/hapus-soal.php?id_detail_soal=<?= $rowSoal['id_detail_soal'] ?>&&id_detail_level=<?= $id_detail_level ?>"><i class="fa-solid fa-trash"></i></a>
+                                    </div>
                                 </div>
-                            </div>
+                            <?php } ?>
                             <div class="card-soal soal-<?= $no % 2 == 0 ? 'brown' : 'green' ?>">
                                 <div class="wrap-soal">
                                     <div class="no-soal">
@@ -90,7 +96,22 @@ if(mysqli_num_rows($dataSoal) != $jumlah_soal){
                                     foreach ($arrayLi as $i => $opsi):
                                     ?>
                                         <li><label for="soal<?= $no . '-' . $opsi['label'] ?>">
-                                                <p><span>&#10004;</span></p><input type="radio" value="<?= $opsi['label'] ?>" name="jawaban<?= $no ?>" class="opsi" id="soal<?= $no . '-' . $opsi['label'] ?>" <?= $rowSoal['jawaban'] == $opsi['label'] ? 'checked' : '' ?> disabled><span><?= $opsi['isi'] ?></span>
+                                                <p><span>&#10004;</span></p>
+                                                <input type="radio" value="<?= $opsi['label'] ?>" name="jawaban<?= $no ?>" class="opsi" id="soal<?= $no . '-' . $opsi['label'] ?>" <?= $rowSoal['jawaban'] == $opsi['label'] ? 'checked' : '' ?> disabled>
+                                                <?php
+                                                $ekstensi = ['png', 'jpg', 'jpeg', 'svg'];
+                                                $img = false;
+                                                foreach ($ekstensi as $ext) {
+                                                    if (str_contains($opsi['isi'], ".$ext")) {
+                                                        $img = true;
+                                                        break;
+                                                    }
+                                                }
+                                                if (!$img) { ?>
+                                                    <span><?= $opsi['isi'] ?></span>
+                                                <?php } else { ?>
+                                                    <span><img src="../../assets/soal/<?= $opsi['isi'] ?>"></span>
+                                                <?php } ?>
                                             </label></li>
 
                                     <?php endforeach; ?>
@@ -124,8 +145,6 @@ if(mysqli_num_rows($dataSoal) != $jumlah_soal){
                                     </div>
                                     <div class="daftar-nilai">
                                         <?php
-                                        $id_detail_soal = $rowSoal['id_detail_soal'];
-                                        $dataJawaban = mysqli_query($connect, "SELECT a.*, c.nama_mhs  FROM jawaban_mhs a INNER JOIN detail_room b ON a.id_detail_room=b.id_detail_room INNER JOIN mahasiswa c ON b.id_mhs=c.id_mhs WHERE id_detail_soal='$id_detail_soal'");
                                         if (mysqli_num_rows($dataJawaban) > 0) {
                                             while ($rowJawaban = mysqli_fetch_assoc($dataJawaban)) { ?>
                                                 <div class="rows">
@@ -168,9 +187,11 @@ if(mysqli_num_rows($dataSoal) != $jumlah_soal){
                 ?>
             </div>
 
-            <a href="" class="btn-input-soal">
-                <img src="../../assets/button/btn-create-room.png" alt="">
-            </a>
+            <?php if (!$fullSoal) { ?>
+                <a href="../../class/input-soal/?id_detail_level=<?= $id_detail_level ?>" class="btn-input-soal">
+                    <img src="../../assets/button/btn-input-soal.png" alt="">
+                </a>
+            <?php } ?>
         </div>
     </div>
 

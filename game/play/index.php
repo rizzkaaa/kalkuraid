@@ -80,7 +80,22 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
                                     foreach ($arrayLi as $i => $opsi):
                                     ?>
                                         <li><label for="soal<?= $no . '-' . $opsi['label'] ?>">
-                                                <p><span>&#10004;</span></p><input type="radio" value="<?= $opsi['label'] ?>" name="jawaban<?= $no ?>" class="opsi" id="soal<?= $no . '-' . $opsi['label'] ?>" required><span><?= $opsi['isi'] ?></span>
+                                                <p><span>&#10004;</span></p>
+                                                <input type="radio" value="<?= $opsi['label'] ?>" name="jawaban<?= $no ?>" class="opsi" id="soal<?= $no . '-' . $opsi['label'] ?>" required>
+                                                <?php
+                                                $ekstensi = ['png', 'jpg', 'jpeg', 'svg'];
+                                                $img = false;
+                                                foreach ($ekstensi as $ext) {
+                                                    if (str_contains($opsi['isi'], ".$ext")) {
+                                                        $img = true;
+                                                        break;
+                                                    }
+                                                }
+                                                if (!$img) { ?>
+                                                    <span><?= $opsi['isi'] ?></span>
+                                                <?php } else { ?>
+                                                    <span><img src="../../assets/soal/<?= $opsi['isi'] ?>"></span>
+                                                <?php } ?>
                                             </label></li>
                                     <?php endforeach; ?>
 
@@ -89,7 +104,7 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
                                     <label>Selamat Mengerjakan</label>
                                 </div>
 
-                                <input type="hidden" value="<?= $rowSoal['id_detail_soal'] ?>" name="id_detail_soal<?=$no?>">
+                                <input type="hidden" value="<?= $rowSoal['id_detail_soal'] ?>" name="id_detail_soal<?= $no ?>">
                             </div>
                         </div>
                     </div>

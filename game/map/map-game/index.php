@@ -46,7 +46,7 @@ $id_room = $dataClass['id_room'];
                     $rowSkor = mysqli_fetch_assoc($dataSkor);
                     $skor_ada = mysqli_num_rows($dataSkor) > 0;
 
-                    $level_sudah_dikerjakan = isset($rowSkor['skor_mhs']) && $rowSkor['skor_mhs'] != 0;
+                    $level_sudah_dikerjakan = isset($rowSkor['skor_mhs']) && $rowSkor['skor_mhs'] != NULL;
                     $is_disabled = !$prev_skor_ada;
 
                 ?>
