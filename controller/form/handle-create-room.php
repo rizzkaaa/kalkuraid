@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (isset($_POST['id_dosen'])) {
             $id_dosen = mysqli_real_escape_string($connect, $_POST['id_dosen']);
-            $updateClassroom = mysqli_query($connect, "UPDATE classroom SET id_dosen='$id_dosen'");
+            $updateClassroom = mysqli_query($connect, "UPDATE classroom SET id_dosen='$id_dosen' WHERE id_room='$id_room'");
         }
 
         $jumlah_level = $_POST['jumlah-level'];
