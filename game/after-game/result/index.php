@@ -64,13 +64,24 @@ $nextStep = $full ? "../../../class/report-game/?id_detail_room=$id_detail_room"
         </div>
     </div>
 
+    <button></button>
     <audio id="klikSound" src="../../../assets/sound/sound-klik.mp3" preload="auto"></audio>
+    <audio id="yeaySound" src="../../../assets/sound/sound-yeay.mp3" preload="auto"></audio>
 
     <script>
+        let yeayPlayed = false; 
+
+        document.addEventListener('click', () => {
+            if (!yeayPlayed) {
+                const yeaySound = document.getElementById("yeaySound");
+                yeaySound.play().catch(e => console.warn('Gagal play yeay:', e));
+            }
+        });
+
         document.querySelector('a').addEventListener('click', () => {
             const klikSound = document.getElementById("klikSound");
-            klikSound.play();
-        })
+            klikSound.play().catch(e => console.warn('Gagal play klik:', e));
+        });
     </script>
 </body>
 

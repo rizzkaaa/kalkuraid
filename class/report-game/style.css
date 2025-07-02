@@ -36,6 +36,8 @@ header {
 }
 .list-nilai li span {
   font-size: 40px;
+  color: #e6ffb2;
+  text-shadow: 0 0 2px grey;
 }
 
 .list-nilai li img {
@@ -47,4 +49,5 @@ header {
 }
 .list-nilai li div p {
   font-size: 28px;
+  color: #8a3a13;
 }

@@ -15,7 +15,6 @@ header {
   background-image: url(../../assets/board/papan-nama.png);
 }
 
-
 .wrap-input-code {
   background-image: url(../../assets/board/papan-input-kode.png);
   width: 360px;
@@ -34,6 +33,7 @@ header {
   width: 180px;
   text-decoration: underline dotted #934600;
   text-align: center;
+  color: #8a3a13;
 }
 .wrap-input-code input:focus {
   outline: none;

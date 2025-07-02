@@ -97,7 +97,13 @@ $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa W
                     Ayo klilk video di atas dan simak baik-baik</p>
             </div>
         </div>
-
+        <audio id="klikSound" src="../../assets/sound/sound-klik.mp3" preload="auto"></audio>
+        <script>
+            document.querySelector('.a').addEventListener('click', () => {
+                const klikSound = document.getElementById("klikSound");
+                klikSound.play();
+            })
+        </script>
 </body>
 
 </html>

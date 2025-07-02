@@ -50,6 +50,20 @@ $id_room = $dataClass['id_room'];
             <?php } ?>
         </ul>
     </div>
+    <audio id="klikSound" src="../../assets/sound/sound-klik.mp3" preload="auto"></audio>
+    <audio id="bgSound" src="../../assets/sound/bg-sound.mp3" loop preload="auto"></audio>
+
+    <script>
+        document.addEventListener('click', () => {
+            const bgSound = document.getElementById("bgSound");
+            bgSound.play();
+        })
+
+        document.querySelector('.btn-undo').addEventListener('click', () => {
+            const klikSound = document.getElementById("klikSound");
+            klikSound.play();
+        })
+    </script>
 </body>
 
 </html>

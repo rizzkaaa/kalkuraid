@@ -69,9 +69,19 @@ $dataMhs = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa WH
                 </div>
             <?php } ?>
         </div>
+        <audio id="klikSound" src="../../assets/sound/sound-klik.mp3" preload="auto"></audio>
     </div>
 
     <script>
+        const btn = document.querySelectorAll('a');
+        btn.forEach(b => {
+            b.addEventListener('click', () => {
+                const audio = document.getElementById("klikSound");
+                audio.currentTime = 0;
+                audio.play();
+            })
+        })
+
         const btnClass = document.querySelectorAll(".btn-class");
         let value = -10;
 

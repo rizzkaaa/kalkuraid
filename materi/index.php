@@ -38,7 +38,16 @@ $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa W
             <?php } ?>
         </div>
     </div>
+    <audio id="klikSound" src="../assets/sound/sound-klik.mp3" preload="auto"></audio>
 
+    <script>
+        document.querySelectorAll('a').forEach(a => {
+            addEventListener('click', () => {
+            const klikSound = document.getElementById("klikSound");
+            klikSound.play();
+        })
+        })
+    </script>
 </body>
 
 </html>

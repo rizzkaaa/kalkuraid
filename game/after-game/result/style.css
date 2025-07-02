@@ -24,6 +24,7 @@ header {
 
 .wrap-result p {
   font-size: 20px;
+  color: #f4d8ae;
 }
 .wrap-result img {
   width: 100px;
@@ -38,6 +39,7 @@ header {
 }
 .wrap-result span {
   font-size: 40px;
+  color: #8a3a13;
 }
 
 a{
