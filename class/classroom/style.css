@@ -13,7 +13,6 @@ header {
   background-image: url(../../assets/board/papan-nama.png);
 }
 
-
 .wrap-kelas {
   background-image: url(../../assets/board/papan-nama-dan-list.png);
   width: 360px;
@@ -33,13 +32,21 @@ header {
   overflow: hidden;
   text-overflow: ellipsis;
   margin-left: 50px;
+  color: #5b6d39;
+  font-weight: bold;
+  font-family: "Libre Caslon Text", serif;
 }
 .papan-nama-kelas div {
-  margin-top: 60px;
-  margin-left: 15px;
+  margin-top: 65px;
+  margin-left: 45px;
 }
-.papan-nama-kelas div span{
-  margin-inline: 25px;
+.papan-nama-kelas div span {
+  color: #5b6d39;
+  font-weight: bold;
+  font-family: "Libre Caslon Text", serif;
+}
+.papan-nama-kelas div span:nth-child(2) {
+  margin-left: 65px;
 }
 
 .list-peserta {
@@ -55,7 +62,7 @@ header {
   transition: all 0.5s;
   width: 100px;
 }
-.overlay{
+.overlay {
   width: 100%;
   height: 150%;
   background-color: #00000046;
@@ -65,24 +72,26 @@ header {
   display: none;
 }
 
-
 .table-peserta {
   margin-top: 60px;
   margin-left: 80px;
   height: 340px;
   overflow-y: auto;
-  scroll-snap-type: y mandatory; 
+  scroll-snap-type: y mandatory;
 }
 .table-peserta::-webkit-scrollbar {
   display: none;
 }
 .baris-peserta {
   display: flex;
+  font-weight: bold;
   align-items: center;
   justify-content: space-between;
   width: 170px;
-  padding: 15px 0 ;
+  padding: 15px 0;
   scroll-snap-align: start;
+  color: #edd677;
+  text-shadow: 0 0 4px #734300;
 }
 .baris-peserta span:first-child {
   width: 70%;
@@ -96,7 +105,7 @@ header {
   padding-inline: 5px;
 }
 
-.single-span{
+.single-span {
   border: none !important;
   width: 100% !important;
   text-align: center;

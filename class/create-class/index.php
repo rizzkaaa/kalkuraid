@@ -26,7 +26,7 @@ if ($peran == "Mahasiswa") {
     <link rel="stylesheet" href="../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 </head>
 
@@ -47,7 +47,7 @@ if ($peran == "Mahasiswa") {
                 </div>
                 <div class="input-create">
                     <p>Jumlah Mahasiswa</p>
-                    <input type="text" oninput="handleInput(this)" name="jumlah_peserta" maxlength="2" required>
+                    <input type="text" autocomplete="off" oninput="handleInput(this)" name="jumlah_peserta" maxlength="2" required>
                 </div>
                 <div class="input-create">
                     <p>Level</p>
@@ -74,9 +74,32 @@ if ($peran == "Mahasiswa") {
             <input type="hidden" id="id_dosen" name="<?= $peran == "Dosen" ? 'id_dosen' : '' ?>" value="<?= $id_dosen ?>">
             <button><img src="../../assets/button/btn-create-room.png"></button>
         </form>
+        <audio id="klikSound" src="../../assets/sound/sound-klik.mp3" preload="auto"></audio>
+        <audio id="popSound" src="../../assets/sound/sound-pop.mp3" preload="auto"></audio>
+        <audio id="bgSound" src="../../assets/sound/bg-sound.mp3" preload="auto"></audio>
+
     </div>
 
     <script>
+        document.addEventListener('click', () => {
+            const bgSound = document.getElementById("bgSound");
+            bgSound.play();
+        })
+
+        const audio = document.getElementById("klikSound");
+        const pop = document.getElementById("popSound");
+        document.querySelector('a').addEventListener('click', () => {
+            audio.currentTime = 0;
+            audio.play();
+        })
+
+        document.querySelector('button').addEventListener('click', () => {
+            audio.currentTime = 0;
+            audio.play();
+        })
+
+
+
         const levels = ['+'];
         let inputs = [];
         const selectBar = document.querySelector('.select-bar');
@@ -86,6 +109,8 @@ if ($peran == "Mahasiswa") {
         function handleClick() {
             inputs.forEach((input, i) => {
                 input.addEventListener("click", () => {
+                    pop.currentTime = 0.5;
+                    pop.play();
                     const value = input.value;
                     if (value == '+' && levels.length == 6) {
                         levels.pop();
@@ -111,6 +136,8 @@ if ($peran == "Mahasiswa") {
         const selectLevels = selectBar.querySelectorAll('li');
         selectLevels.forEach(selectLevel => {
             selectLevel.addEventListener('click', () => {
+                pop.currentTime = 0.5;
+                pop.play();
                 const dataValue = selectLevel.getAttribute('data-value');
                 levels.unshift(dataValue);
                 updateLevel();
@@ -123,7 +150,7 @@ if ($peran == "Mahasiswa") {
             const box = document.querySelector('.box-level');
             box.innerHTML = '';
             levels.forEach((level, i) => {
-                box.innerHTML += `<input type="text" name="${level != '+' ? `level`+(i+1) : ''}" value="${level}" readonly>`;
+                box.innerHTML += `<input type="text" autocomplete="off" name="${level != '+' ? `level`+(i+1) : ''}" value="${level}" readonly>`;
             });
             updateSoalLevel();
             inputs = document.querySelectorAll('.box-level input');
@@ -143,7 +170,7 @@ if ($peran == "Mahasiswa") {
                 if (level !== '+') {
                     box.innerHTML += `<div class="wrap-soal">
                     <p>LV: ${level}</p>
-                                <input type="text" name="soal-level${i+1}" oninput="handleInput(this)" maxlength="1" required>
+                                <input type="text" autocomplete="off" name="soal-level${i+1}" oninput="handleInput(this)" maxlength="1" required>
                             </div>`;
                 }
             });

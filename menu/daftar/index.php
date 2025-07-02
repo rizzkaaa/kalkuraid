@@ -65,7 +65,8 @@ include '../../db.php';
         </div>
       </div>
     </form>
-    <audio id="klikSoundUnik" src="../assets/sound/sound-klik-btn.mp3" preload="auto"></audio>
+    <audio id="klikSoundUnik" src="../../assets/sound/sound-klik-btn.mp3" preload="auto"></audio>
+    <audio id="klikSound" src="../../assets/sound/sound-klik.mp3" preload="auto"></audio>
 
   </div>
 
@@ -81,6 +82,11 @@ include '../../db.php';
     const pw = document.getElementById("pw");
     const btnNext = document.querySelectorAll(".btn");
 
+    const audioUnik = document.getElementById("klikSoundUnik");
+    const audio = document.getElementById("klikSound");
+
+
+
     trees.forEach((tree, i) => {
       tree.style.animation = `slide${i + 1} 1s`;
     })
@@ -88,6 +94,9 @@ include '../../db.php';
     labels.forEach((label, i) => {
       label.addEventListener("click", () => {
         label.style.animation = "onclick 0.5s";
+        audioUnik.currentTime = 0;
+        audioUnik.play();
+
         let val = 0;
 
         if (i == 0) {
@@ -154,6 +163,8 @@ include '../../db.php';
 
         }
 
+        audioUnik.currentTime = 0;
+        audioUnik.play();
         btn.style.animation = "onclick 0.5s";
         setTimeout(() => {
           pw.style.display = 'flex';
@@ -168,6 +179,9 @@ include '../../db.php';
       btn.addEventListener('click', () => {
         if (i == 0) {
           btn.style.animation = "onclick 0.5s backwards";
+          audioUnik.currentTime = 0;
+          audioUnik.play();
+          
           trees.forEach((tree, j) => {
             if (j == 0) {
               val = -220;
@@ -181,6 +195,9 @@ include '../../db.php';
             window.location.href = "../";
           }, 600);
         } else if (i == 3) {
+          audio.currentTime = 0;
+          audio.play();
+
           document.getElementById("username").value = "";
           document.getElementById("password").value = "";
 
@@ -193,6 +210,9 @@ include '../../db.php';
           }, 1000);
 
         } else {
+          audio.currentTime = 0;
+          audio.play();
+
           document.getElementById("nama_mhs").value = "";
           document.getElementById("npm").value = "";
           document.getElementById("univ_mhs").value = "";

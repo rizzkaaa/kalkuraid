@@ -17,15 +17,17 @@ $id_dosen = $dataUser['id_dosen'];
     <link rel="stylesheet" href="../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 
 </head>
 
 <body>
     <div class="container">
+        <div class="wrap-alert">
+        </div>
         <header>
-            <a href="../../logout.php" onclick="return confirm('Anda yakin ingin keluar?')" class="btn-undo"><img src="../../assets/button/btn-logout.png"></a>
+            <a href="" class="btn-undo"><img src="../../assets/button/btn-logout.png"></a>
 
             <div class="nama-user">
                 <p><?= $dataUser['nama_dosen'] ?></p>
@@ -67,14 +69,47 @@ $id_dosen = $dataUser['id_dosen'];
             } else { ?>
                 <div class="btn-class">
                     <img src="../../assets/button/btn-uplist-class.png">
-                    <a href="../../class/classroom/">
+                    <a href="#">
                         <span>Tidak ada kelas</span>
                     </a>
                 </div>
             <?php } ?>
+
+            <audio id="klikSound" src="../../assets/sound/sound-klik.mp3" preload="auto"></audio>
+            <audio id="popSound" src="../../assets/sound/sound-pop.mp3" preload="auto"></audio>
+            <audio id="bgSound" src="../../assets/sound/bg-sound.mp3" preload="auto"></audio>
         </div>
 
+        <script src="../../script.js"></script>
+
         <script>
+            document.addEventListener('click', () => {
+                const bgSound = document.getElementById("bgSound");
+                bgSound.play();
+            })
+
+            const btn = document.querySelectorAll('a');
+            btn.forEach((b, i) => {
+                b.addEventListener('click', (e) => {
+                    if (b.parentElement.classList.contains('papan-aksi')) {
+                        const pop = document.getElementById("popSound");
+                        pop.currentTime = 0.5;
+                        pop.play();
+                        return
+                    }
+                    const audio = document.getElementById("klikSound");
+                    audio.currentTime = 0;
+                    audio.play();
+                    if (i == 0) {
+                        e.preventDefault();
+                        const yakin = confirm('Anda yakin ingin keluar?');
+                        if (yakin) {
+                            window.location.href = '../../logout.php';
+                        }
+                    }
+                })
+            })
+
             const btnClass = document.querySelectorAll(".btn-class");
             let value = -10;
 
@@ -91,7 +126,6 @@ $id_dosen = $dataUser['id_dosen'];
                 const aksi = item.querySelector(".aksi");
                 let timer;
                 const showAksi = (e) => {
-                    console.log("mousedown");
                     timer = setTimeout(() => {
                         document.querySelectorAll(".aksi").forEach(a => a.style.transform = "translateX(550px)");
                         aksi.style.transform = "translateX(0)";

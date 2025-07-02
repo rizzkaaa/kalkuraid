@@ -29,6 +29,8 @@ header {
   text-align: center;
   margin-top: 95px;
   margin-left: 40px;
+  color: #ffeb97;
+  text-shadow: 0 0 5px #b6781b;
 }
 /* ------------------------------------------------------------------------------------- */
 
@@ -54,6 +56,7 @@ header {
   display: flex;
   flex-direction: column;
   border-radius: 30px;
+  font-family: "Libre Caslon Text", serif;
 }
 .soal label:nth-child(2) {
   width: fit-content;
@@ -77,6 +80,7 @@ input[type="file"] {
   border-radius: 10px;
   padding: 5px 10px;
   color: white;
+  font-family: "Libre Caslon Text", serif;
 }
 .soal input[type="text"]:focus,
 .soal input[type="text"]:valid {
@@ -87,7 +91,7 @@ input[type="file"] {
   max-width: 290px;
 }
 .wrap-soal .soal p {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Libre Caslon Text", serif;
   font-size: 15px;
   color: white;
   margin-top: 10px;
@@ -98,6 +102,7 @@ input[type="file"] {
   margin: 10px;
   border-radius: 20px;
   display: flex;
+  font-family: "Libre Caslon Text", serif;
 }
 .wrap-opsi li label:first-child {
   display: flex;
@@ -125,10 +130,13 @@ input[type="file"] {
   align-items: center;
   justify-content: center;
 }
+.wrap-opsi li span:nth-child(3) img{
+  max-width: 190px;
+}
 .wrap-opsi li span:nth-child(3) input {
   text-align: center;
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Libre Caslon Text", serif;
   background: transparent;
   border: none;
 }
@@ -141,8 +149,8 @@ input[type="file"] {
 .wrap-opsi li label:nth-child(4) img {
   width: 20px;
 }
-.wrap-opsi li label input {
-  /* display: none; */
+.wrap-opsi li label input[type="radio"] {
+  display: none;
 }
 
 .selected-answer label p span {
@@ -160,6 +168,8 @@ input[type="file"] {
 }
 .soal-green .wrap-soal .no-soal p {
   background-color: #658923;
+  color: #e6ffb2;
+  text-shadow: 0 0 6px #436900;
 }
 .soal-green .wrap-soal .soal {
   background-color: #8dab55;
@@ -193,4 +203,6 @@ button {
   margin: 10px;
   align-self: flex-end;
   display: none;
+  font-family: "Libre Caslon Text", serif;
+  color: #436900;
 }

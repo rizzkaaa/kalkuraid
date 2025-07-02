@@ -28,6 +28,8 @@ header {
   width: 300px;
   height: 200px;
   background-size: contain;
+  color: #ffeb97;
+  text-shadow: 0 0 5px #b6781b;
   background-image: url(../../assets/board/papan-judul-soal.png);
 }
 .papan-judul p {
@@ -86,7 +88,7 @@ header {
   border-radius: 30px;
 }
 .wrap-soal .soal p {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Libre Caslon Text", serif;
   font-size: 15px;
   color: white;
   margin-top: 10px;
@@ -122,7 +124,10 @@ header {
   flex: 1;
   text-align: center;
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Libre Caslon Text", serif;
+}
+.wrap-opsi li span:nth-child(3) img{
+  max-width: 190px;
 }
 .wrap-opsi li label input {
   display: none;
@@ -160,6 +165,8 @@ header {
   background-color: #497200;
 }
 .soal-green .wrap-soal .no-soal p {
+  color: #e6ffb2;
+  text-shadow: 0 0 6px #436900;
   background-color: #658923;
 }
 .soal-green .wrap-soal .soal {
@@ -190,6 +197,8 @@ header {
   background-color: #497200;
 }
 .soal-green .wrap-jawaban label {
+  color: #e6ffb2;
+  text-shadow: 0 0 13px #436900;
   background: linear-gradient(90deg, #cecd4d, #8dab55, #8dab55);
 }
 
@@ -200,6 +209,8 @@ header {
   background-color: #734300;
 }
 .soal-brown .wrap-soal .no-soal p {
+  color: #edd677;
+  text-shadow: 0 0 6px #734300;
   background-color: #c47200;
 }
 .soal-brown .wrap-soal .soal {
@@ -229,6 +240,8 @@ header {
   background-color: #734300;
 }
 .soal-brown .wrap-jawaban label {
+  color: #edd677;
+  text-shadow: 0 0 13px #734300;
   background: linear-gradient(90deg, #ddbb8d, #b28a54);
 }
 
@@ -317,6 +330,8 @@ header {
 
 .nilai-green .tabel-nilai {
   border: 5px solid #436900;
+  color: #e6ffb2;
+  text-shadow: 0 0 6px #436900;
 }
 .nilai-green .tabel-nilai .rows {
   background-color: #8ba854;
@@ -363,6 +378,9 @@ header {
 
 .nilai-brown .tabel-nilai {
   border: 5px solid #734300;
+
+  color: #edd677;
+  text-shadow: 0 0 6px #734300;
 }
 .nilai-brown .tabel-nilai .rows {
   background-color: #b28a54;

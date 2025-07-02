@@ -23,7 +23,7 @@ $dataLevel = mysqli_fetch_assoc(mysqli_query($connect, "SELECT a.*, b.nama_level
     <link rel="stylesheet" href="../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 </head>
 
@@ -49,7 +49,7 @@ $dataLevel = mysqli_fetch_assoc(mysqli_query($connect, "SELECT a.*, b.nama_level
                     <label for="soal_img"><img src="../../assets/component/icon-input.svg"></label>
                     <input type="file" id="soal_img" name="soal_img">
                     <div class="garis-soal"></div>
-                    <input type="text" name="soal" required>
+                    <input type="text" autocomplete="off" name="soal" required>
                 </div>
             </div>
             <ul class="wrap-opsi">
@@ -63,7 +63,7 @@ $dataLevel = mysqli_fetch_assoc(mysqli_query($connect, "SELECT a.*, b.nama_level
                             </p>
                             <input type="radio" value="opsi_<?= $i ?>" name="jawaban" class="opsi" id="opsi_<?= $i ?>-jawaban">
                             <span>
-                                <input type="text" name="opsi_<?= $i ?>" id="opsi_<?= $i ?>" required>
+                                <input type="text" autocomplete="off" name="opsi_<?= $i ?>" id="opsi_<?= $i ?>" required>
                                 <img src="" id="preview-opsi<?= $i ?>">
                             </span>
                             <label for="opsi_<?= $i ?>-img" id="label-opsi_<?= $i ?>-img"><img src="../../assets/component/icon-input.svg"></label>
@@ -73,11 +73,41 @@ $dataLevel = mysqli_fetch_assoc(mysqli_query($connect, "SELECT a.*, b.nama_level
 
             </ul>
 
-            <button>Simpan</button>
+            <button type="submit">Simpan</button>
         </form>
+        <audio id="bgSound" src="../../assets/sound/bg-sound.mp3" preload="auto"></audio>
+        <audio id="klikSound" src="../../assets/sound/sound-klik.mp3" preload="auto"></audio>
+        <audio id="pop" src="../../assets/sound/sound-pop.mp3" preload="auto"></audio>
+        <audio id="playSound" src="../../assets/sound/sound-klik-play.mp3" preload="auto"></audio>
+        
     </div>
 
     <script>
+        const path = '../../assets/component/icon-input.svg';
+        document.querySelectorAll('img').forEach(i => {
+            if(i.getAttribute('src') == path){
+                i.addEventListener('click', () => {
+                    pop.currentTime = 0.5;
+                    pop.play();
+                })
+            }
+        });
+        document.addEventListener('click', () => {
+            const bgSound = document.getElementById("bgSound");
+            bgSound.play();
+        })
+
+        const klikSound = document.getElementById("klikSound");
+        const pop = document.getElementById("pop");
+        const playSound = document.getElementById("playSound");
+
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                klikSound.currentTime = 0;
+                klikSound.play();
+            })
+        })
+
         const inputFoto = document.getElementById('soal_img');
         const preview = document.getElementById('preview-soal');
 
@@ -135,6 +165,9 @@ $dataLevel = mysqli_fetch_assoc(mysqli_query($connect, "SELECT a.*, b.nama_level
 
         options.forEach(option => {
             option.addEventListener("change", () => {
+                playSound.currentTime = 0;
+                playSound.play();
+
                 if (option.checked) {
                     const btn = document.querySelector('button').style.display = 'block';
                     const wrapOpsi = option.closest(".wrap-opsi");

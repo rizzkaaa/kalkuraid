@@ -25,7 +25,7 @@ while ($row = mysqli_fetch_assoc($dataDetailLevel)) {
     <link rel="stylesheet" href="../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 </head>
 
@@ -72,9 +72,27 @@ while ($row = mysqli_fetch_assoc($dataDetailLevel)) {
             <input type="hidden" name="id_room" value="<?= $id_room ?>">
             <button><img src="../../assets/button/btn-create-room.png"></button>
         </form>
+        <audio id="klikSound" src="../../assets/sound/sound-klik.mp3" preload="auto"></audio>
+        <audio id="bgSound" src="../../assets/sound/bg-sound.mp3" preload="auto"></audio>
+
     </div>
 
     <script>
+        document.addEventListener('click', () => {
+            const bgSound = document.getElementById("bgSound");
+            bgSound.play();
+        })
+        const audio = document.getElementById("klikSound");
+        document.querySelector('a').addEventListener('click', () => {
+            audio.currentTime = 0;
+            audio.play();
+        })
+
+        document.querySelector('button').addEventListener('click', () => {
+            audio.currentTime = 0;
+            audio.play();
+        })
+
         function handleInput(el) {
             el.value = el.value.replace(/[^0-9]/g, '');
 
