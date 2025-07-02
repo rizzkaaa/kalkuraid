@@ -42,7 +42,27 @@ $dataMhs = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa WH
             <button type="submit"><img src="../../assets/button/btn-masuk-room.png"></button>
         </form>
     </div>
+    <audio id="klikSound" src="../../assets/sound/sound-klik.mp3" preload="auto"></audio>
+    <audio id="bgSound" src="../../assets/sound/bg-sound.mp3" preload="auto"></audio>
 
+    <script>
+        document.addEventListener('click', () => {
+            const bgSound = document.getElementById("bgSound");
+            bgSound.play();
+        })
+
+        document.querySelector('a').addEventListener('click', (e) => {
+            const audio = document.getElementById("klikSound");
+            audio.currentTime = 0;
+            audio.play();
+        })
+
+        document.querySelector('button').addEventListener('click', (e) => {
+            const audio = document.getElementById("klikSound");
+            audio.currentTime = 0;
+            audio.play();
+        })
+    </script>
 </body>
 
 </html>

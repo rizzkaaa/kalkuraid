@@ -123,6 +123,9 @@ header {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
+.wrap-opsi li span:nth-child(3) img{
+  max-width: 190px;
+}
 .wrap-opsi li label input {
   display: none;
 }

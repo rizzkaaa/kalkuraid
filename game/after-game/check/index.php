@@ -110,6 +110,14 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
             </div>
         </div>
     </div>
+    <audio id="klikSound" src="../../../assets/sound/sound-klik.mp3" preload="auto"></audio>
+
+    <script>
+        document.querySelector('.btn-undo').addEventListener('click', () => {
+            const klikSound = document.getElementById("klikSound");
+            klikSound.play();
+        })
+    </script>
 </body>
 
 </html>

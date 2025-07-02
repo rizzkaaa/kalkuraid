@@ -34,7 +34,7 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
         <input type="hidden" value="<?= $dataLevel['jumlah_soal'] ?>" name="jumlah_soal">
 
         <header>
-            <button class="btn-undo" type="submit" onclick="return confirm('Anda yakin ingin menghentikan permainan? Anda tidak dapat kembali lagi.')"><img src="../../assets/button/btn-submit.png"></button>
+            <button class="btn-undo" type="submit"><img src="../../assets/button/btn-submit.png"></button>
 
             <div class="nama-user">
                 <p><?= $dataClass['nama_room'] ?></p>
@@ -113,15 +113,35 @@ $dataClass = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM classroom 
             </div>
         </div>
     </form>
+    <audio id="klikSound" src="../../assets/sound/sound-klik.mp3" preload="auto"></audio>
+    <audio id="klikSoundPlay" src="../../assets/sound/sound-klik-play.mp3" preload="auto"></audio>
+    <audio id="bgSound" src="../../assets/sound/play-sound.mp3" loop preload="auto"></audio>
 
     <script>
+        document.addEventListener('click', () => {
+            const bgSound = document.getElementById("bgSound");
+            bgSound.play();
+        })
+
+        document.querySelector('.btn-undo').addEventListener('click', (e) => {
+            const form = document.querySelector('form');
+            const klikSound = document.getElementById("klikSound");
+            klikSound.play();
+
+            e.preventDefault();
+            const yakin = confirm('Anda yakin ingin menghentikan permainan? Anda tidak dapat kembali.');
+            if (yakin) {
+                form.submit();
+            }
+        })
+
         const options = document.querySelectorAll(".opsi");
 
         options.forEach(option => {
             option.addEventListener("change", () => {
                 if (option.checked) {
-                    console.log(true);
-
+                    const klikSoundPlay = document.getElementById("klikSoundPlay");
+                    klikSoundPlay.play();
                     const wrapOpsi = option.closest(".wrap-opsi");
 
                     wrapOpsi.querySelectorAll("li").forEach(li => {

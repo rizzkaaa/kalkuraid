@@ -70,12 +70,24 @@ $id_room = $dataClass['id_room'];
             </div>
 
         </div>
+        <audio id="pop" src="../../../assets/sound/sound-pop.mp3" preload="auto"></audio>
+        <audio id="bgSound" src="../../../assets/sound/bg-sound.mp3" preload="auto"></audio>
+
     </div>
 
     <script>
+        document.addEventListener('click', () => {
+            const bgSound = document.getElementById("bgSound");
+            bgSound.play();
+        })
+
         const levels = document.querySelectorAll('.level');
         levels.forEach(level => {
             level.addEventListener('click', () => {
+                const audio = document.getElementById("pop");
+                audio.currentTime = 0.5;
+                audio.play();
+
                 const nextStep = level.getAttribute('next-step');
                 console.log(nextStep);
                 const id_detail_level = level.getAttribute('data-id');

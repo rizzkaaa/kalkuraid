@@ -39,6 +39,31 @@ $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa W
         </div>
     </div>
 
+    <audio id="klikSound" src="../../assets/sound/sound-klik.mp3" preload="auto"></audio>
+    <audio id="bgSound" src="../../assets/sound/bg-sound.mp3" preload="auto"></audio>
+
+    <script>
+        document.addEventListener('click', () => {
+            const bgSound = document.getElementById("bgSound");
+            bgSound.play();
+        })
+
+        const btn = document.querySelectorAll('a');
+        btn.forEach((b, i) => {
+            b.addEventListener('click', (e) => {
+                const audio = document.getElementById("klikSound");
+                audio.currentTime = 0;
+                audio.play();
+                if (i == 0) {
+                    e.preventDefault();
+                    const yakin = confirm('Anda yakin ingin keluar?');
+                    if (yakin) {
+                        window.location.href = '../../logout.php';
+                    }
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>

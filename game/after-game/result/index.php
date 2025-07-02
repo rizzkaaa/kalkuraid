@@ -64,6 +64,14 @@ $nextStep = $full ? "../../../class/report-game/?id_detail_room=$id_detail_room"
         </div>
     </div>
 
+    <audio id="klikSound" src="../../../assets/sound/sound-klik.mp3" preload="auto"></audio>
+
+    <script>
+        document.querySelector('a').addEventListener('click', () => {
+            const klikSound = document.getElementById("klikSound");
+            klikSound.play();
+        })
+    </script>
 </body>
 
 </html>
