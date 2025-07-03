@@ -14,7 +14,6 @@ header {
   background-image: url(../../assets/board/papan-nama.png);
 }
 
-
 .wrap-materi {
   padding-inline: 30px;
   overflow-y: auto;
@@ -44,11 +43,13 @@ header {
   font-family: "Open Sans";
   text-align: justify;
 }
-.wrap-pengertian ul {
+.wrap-pengertian ul,
+.wrap-pengertian ol {
   padding-inline: 20px;
 }
 
 .pengertian:first-child h3 {
+  color: #8a3a13;
   border: 5px solid #934600;
   background: radial-gradient(circle at 50% 50%, #fdd080, #a66830);
 }
@@ -61,21 +62,6 @@ header {
   width: 100px;
 }
 
-.pengertian:nth-child(2) h3,
-.pengertian:nth-child(3) h3 {
-  border: 5px solid #497200;
-  background: radial-gradient(circle at 50% 50%, #eecd4d, #8dab55);
-}
-.pengertian:nth-child(2) .wrap-pengertian,
-.pengertian:nth-child(3) .wrap-pengertian {
-  border: 5px solid #497200;
-  background-color: #e6ffb29c;
-}
-.pengertian:nth-child(2) .wrap-pengertian img,
-.pengertian:nth-child(3) .wrap-pengertian img {
-  width: 150px;
-}
-
 .pengertian:last-child {
   border: 5px dashed #934600;
   border-radius: 40px;
@@ -84,7 +70,7 @@ header {
   background-color: #f6d48fa1;
 }
 
-  .pengertian:last-child iframe{
-    margin-bottom: 15px;
-    width: 95%;
-  }
+.pengertian:last-child iframe {
+  margin-bottom: 15px;
+  width: 95%;
+}

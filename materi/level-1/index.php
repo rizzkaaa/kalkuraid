@@ -86,8 +86,8 @@ $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa W
 
             <div class="pengertian">
                 <iframe
-                    src="https://www.youtube.com/embed/ID_VIDEO"
-                    title="YouTube video player"
+                    src="https://www.youtube.com/embed/zgB6ewimU7E?si=2lM7Bdo79SOJPFZd"
+                    title="Integral Fungsi Rasional"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
@@ -99,7 +99,7 @@ $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa W
         </div>
         <audio id="klikSound" src="../../assets/sound/sound-klik.mp3" preload="auto"></audio>
         <script>
-            document.querySelector('.a').addEventListener('click', () => {
+            document.querySelector('a').addEventListener('click', () => {
                 const klikSound = document.getElementById("klikSound");
                 klikSound.play();
             })

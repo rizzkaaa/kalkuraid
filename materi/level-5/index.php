@@ -12,7 +12,7 @@ $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa W
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integral Fungsi Rasional</title>
+    <title>Teorema Simetri </title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="../../global-style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,68 +36,29 @@ $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa W
             <div class="pengertian">
                 <h3>Pengertian</h3>
                 <div class="wrap-pengertian">
-                    <p>Fungsi rasional adalah fungsi yang merupakan hasil bagi dua fungsi polinomial.</p>
-                    <img src="../../assets/materi/level-1/1.png">
-                    <p>Apabila pangkat dari pembilang lebih besar atau
-                        sama dengan pangkat dari penyebut, maka diperoleh fungsi
-                        rasional tak sejati, dan jika pangkat dari penyebut lebih besar dari
-                        pembilang fungsi rasional dikatakan sebagai fungsi rasional sejati</p>
+                    <p>Teorema Simetri digunakan untuk mempercepat perhitungan integral tertentu apabila fungsi yang diintegralkan adalah fungsi genap atau fungsi ganjil.</p>
                 </div>
             </div>
-
-            <div class="pengertian">
-                <h3>Fungsi Rasional Tak Sejati</h3>
-                <div class="wrap-pengertian">
-                    <p>Jika pangkat pembilang >= penyebut, lakukan pembagian polinomial menjadi bentuk polinomial dan rasional sejati.</p>
-                    <img src="../../assets/materi/level-1/2.png">
-                    <ul>
-                        <li>
-                            <p>S(x): hasil bagi (polinomial biasa)</p>
-                        </li>
-                        <li>
-                            <p>R(x)​: sisa pembagian dengan derajat R(x) < Q(x)</p>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-
-            <div class="pengertian">
-                <h3>Fungsi Rasional Sejati</h3>
-                <div class="wrap-pengertian">
-                    <p>Ada beberapa kemungkinan yang muncul dalam fungsi rasional sejati, yaitu:</p>
-                    <ul>
-                        <li>
-                            <p>g(x) = (ax + b)(cx + d) => Bentuk Linier Tak Berulang</p>
-                            <img src="../../assets/materi/level-1/3.png">
-                        </li>
-                        <li>
-                            <p>g(x) = (ax + b) => Bentuk Linier Berulang</p>
-                            <img src="../../assets/materi/level-1/4.png">
-                        </li>
-                        <li>
-                            <p>g(x) = (ax + b)(px + qx + r) => Perkalian Bentuk Linier dan Bentuk Kuadrat</p>
-                            <img src="../../assets/materi/level-1/5.png">
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-
+            
             <div class="pengertian">
                 <iframe
-                    src="https://www.youtube.com/embed/ID_VIDEO"
-                    title="YouTube video player"
+                    src="https://www.youtube.com/embed/Q5MVNhvZGoo?si=9nNBof5Eowe9GPe2"
+                    title="Teorema Simetri"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
                 </iframe>
 
-                <p>Masih belum paham degan materi ini ?
-                    Ayo klilk video di atas dan simak baik-baik</p>
+                <p>Ayo klilk video di atas dan simak baik-baik</p>
             </div>
         </div>
-
+        <audio id="klikSound" src="../../assets/sound/sound-klik.mp3" preload="auto"></audio>
+        <script>
+            document.querySelector('a').addEventListener('click', () => {
+                const klikSound = document.getElementById("klikSound");
+                klikSound.play();
+            })
+        </script>
 </body>
 
 </html>

@@ -39,60 +39,26 @@ $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa W
                     <p>Teorema Dasar Kalkulus adalah jembatan penting antara kalkulus diferensial (yang berkaitan dengan turunan) dan kalkulus integral (yang berkaitan dengan integral). Teorema ini menyatakan dua hal besar yang saling berkaitan, sering disebut sebagai Bagian Pertama dan Bagian Kedua dari Teorema Dasar Kalkulus.</p>
                 </div>
             </div>
-
-            <div class="pengertian">
-                <h3>TDK 1</h3>
-                <div class="wrap-pengertian">
-                    <p>Misalkan:</p>
-                    <ul>
-                        <li>
-                            <p>f adalah fungsi kontinu pada interval tertutup [a,b]</p>
-                        </li>
-                        <li>
-                            <p>Kita definisikan fungsi F sebagai:</p>
-                        </li>
-                    </ul>
-                    <img src="../../assets/materi/level-2/1.png">
-
-                </div>
-            </div>
-
-            <div class="pengertian">
-                <h3>Fungsi Rasional Sejati</h3>
-                <div class="wrap-pengertian">
-                    <p>Ada beberapa kemungkinan yang muncul dalam fungsi rasional sejati, yaitu:</p>
-                    <ul>
-                        <li>
-                            <p>g(x) = (ax + b)(cx + d) => Bentuk Linier Tak Berulang</p>
-                            <img src="../../assets/materi/level-1/3.png">
-                        </li>
-                        <li>
-                            <p>g(x) = (ax + b) => Bentuk Linier Berulang</p>
-                            <img src="../../assets/materi/level-1/4.png">
-                        </li>
-                        <li>
-                            <p>g(x) = (ax + b)(px + qx + r) => Perkalian Bentuk Linier dan Bentuk Kuadrat</p>
-                            <img src="../../assets/materi/level-1/5.png">
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-
+            
             <div class="pengertian">
                 <iframe
-                    src="https://www.youtube.com/embed/ID_VIDEO"
-                    title="YouTube video player"
+                    src="https://www.youtube.com/embed/xj5HMpOGxK0?si=s6pv9gMaqi_bbayL"
+                    title="Teorema Dasar Kalkulus"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
                 </iframe>
 
-                <p>Masih belum paham degan materi ini ?
-                    Ayo klilk video di atas dan simak baik-baik</p>
+                <p>Ayo klilk video di atas dan simak baik-baik</p>
             </div>
         </div>
-
+        <audio id="klikSound" src="../../assets/sound/sound-klik.mp3" preload="auto"></audio>
+        <script>
+            document.querySelector('a').addEventListener('click', () => {
+                const klikSound = document.getElementById("klikSound");
+                klikSound.play();
+            })
+        </script>
 </body>
 
 </html>

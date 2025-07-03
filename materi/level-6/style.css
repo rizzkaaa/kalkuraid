@@ -44,11 +44,13 @@ header {
   font-family: "Open Sans";
   text-align: justify;
 }
-.wrap-pengertian ul {
+.wrap-pengertian ul,
+.wrap-pengertian ol {
   padding-inline: 20px;
 }
 
 .pengertian:first-child h3 {
+  color: #8a3a13;
   border: 5px solid #934600;
   background: radial-gradient(circle at 50% 50%, #fdd080, #a66830);
 }
