@@ -42,8 +42,8 @@ $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa W
             
             <div class="pengertian">
                 <iframe
-                    src="https://www.youtube.com/embed/ID_VIDEO"
-                    title="YouTube video player"
+                    src="https://www.youtube.com/embed/XpfYN987pAY?si=ku_M2xKG1EW5UhpE"
+                    title="Luas Kurva dengan Aturan Riemann"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>

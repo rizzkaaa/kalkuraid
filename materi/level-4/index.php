@@ -42,8 +42,8 @@ $dataUser = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM mahasiswa W
             
             <div class="pengertian">
                 <iframe
-                    src="https://www.youtube.com/embed/ID_VIDEO"
-                    title="YouTube video player"
+                    src="https://www.youtube.com/embed/s7sycbBBHkk?si=m9GsHEjHPGTga_Z0""
+                    title="Teorema Penggantian"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>

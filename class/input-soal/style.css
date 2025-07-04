@@ -41,6 +41,8 @@ header {
   width: 330px;
   display: flex;
   flex-direction: column;
+  height: 500px;
+  overflow-y: scroll;
 }
 .wrap-soal {
   border-radius: 30px;
@@ -130,7 +132,7 @@ input[type="file"] {
   align-items: center;
   justify-content: center;
 }
-.wrap-opsi li span:nth-child(3) img{
+.wrap-opsi li span:nth-child(3) img {
   max-width: 190px;
 }
 .wrap-opsi li span:nth-child(3) input {
